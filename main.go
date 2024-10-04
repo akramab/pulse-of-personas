@@ -2,23 +2,17 @@ package main
 
 import (
 	"bg-proto/config"
-	openai "bg-proto/open-ai"
+	uscensus "bg-proto/us-census"
 	"context"
-	"fmt"
 )
 
 func main() {
 	ctx := context.Background()
 	config := config.NewConfig()
-	client := openai.NewClient(config)
+	censusClient := uscensus.NewClient(config)
 
-	createImagePrompt := "Key Visual for selling flu medicine."
-	numOfImages := 3
-	resp, err := client.CreateImageFromPrompt(ctx, createImagePrompt, numOfImages)
+	err := censusClient.GetData(ctx, 2023, uscensus.StateCodeNewYork, uscensus.RangeCodeGetTotalAll)
 	if err != nil {
-		fmt.Printf("Error occured: %v\n", err)
-		return
+		panic(err)
 	}
-
-	fmt.Println(resp)
 }

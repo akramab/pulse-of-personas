@@ -36,7 +36,7 @@ type clientImpl struct {
 // NewClient() creates a new Client and set the default model to GPT4oMini
 func NewClient(config config.Config) Client {
 	return &clientImpl{
-		oaclient:                    openai.NewClient(config.APIKey),
+		oaclient:                    openai.NewClient(config.OpenAIAPIKey),
 		defaultPromptModel:          openai.GPT4oMini,
 		defaultImageGenerationModel: openai.CreateImageModelDallE2,
 	}
