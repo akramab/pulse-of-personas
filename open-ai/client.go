@@ -9,8 +9,20 @@ import (
 )
 
 // Client wraps the OpenAPI library from github.com/sashabaranov/go-openai.
+// This interface should have simpler functions that are tailored for this application intended use
+type Client interface {
+	// This function should be used for a simple prompt to the ChatGPT server
+	AskPrompt(ctx context.Context, prompt string) (string, error)
+	// Use this function if you want to make a promp with attached image / images
+	// ex: Ask ChatGPT to describe an image
+	AskPromptWithImages(ctx context.Context, request ImageRequest) (string, error)
+	// Create images based on a given prompt.
+	CreateImageFromPrompt(ctx context.Context, prompt string, numOfImages int) ([]string, error)
+}
+
+// clientImpl wraps the OpenAPI library from github.com/sashabaranov/go-openai.
 // This struct should implement simpler functions that are tailored for this application intended use
-type Client struct {
+type clientImpl struct {
 	// openapi client used by this struct
 	oaclient *openai.Client
 	// default OpenAPI model to be used for prompts
@@ -23,15 +35,14 @@ type Client struct {
 
 // NewClient() creates a new Client and set the default model to GPT4oMini
 func NewClient(config config.Config) Client {
-	return Client{
+	return &clientImpl{
 		oaclient:                    openai.NewClient(config.APIKey),
 		defaultPromptModel:          openai.GPT4oMini,
 		defaultImageGenerationModel: openai.CreateImageModelDallE2,
 	}
 }
 
-// This function should be used for a simple prompt to the ChatGPT server
-func (c *Client) AskPrompt(ctx context.Context, prompt string) (string, error) {
+func (c *clientImpl) AskPrompt(ctx context.Context, prompt string) (string, error) {
 	resp, err := c.oaclient.CreateChatCompletion(
 		ctx,
 		openai.ChatCompletionRequest{
@@ -53,8 +64,7 @@ func (c *Client) AskPrompt(ctx context.Context, prompt string) (string, error) {
 	return resp.Choices[0].Message.Content, nil
 }
 
-// Use this function if you want to make a promp with attached image / images
-func (c *Client) AskPromptWithImages(ctx context.Context, request ImageRequest) (string, error) {
+func (c *clientImpl) AskPromptWithImages(ctx context.Context, request ImageRequest) (string, error) {
 	chatMessagePart, err := request.buildChatMessagePart()
 	if err != nil {
 		return "", err
@@ -81,10 +91,9 @@ func (c *Client) AskPromptWithImages(ctx context.Context, request ImageRequest) 
 	return resp.Choices[0].Message.Content, nil
 }
 
-// Create images based on a given prompt.
 // TODO: For now the images will be given as a URL.
 // We could change this to save created image to local later if we want.
-func (c *Client) CreateImageFromPrompt(ctx context.Context, prompt string, numOfImages int) ([]string, error) {
+func (c *clientImpl) CreateImageFromPrompt(ctx context.Context, prompt string, numOfImages int) ([]string, error) {
 	reqUrl := openai.ImageRequest{
 		Model:          c.defaultImageGenerationModel,
 		Prompt:         prompt,
