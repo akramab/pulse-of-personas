@@ -12,8 +12,9 @@ func main() {
 	config := config.NewConfig()
 	client := openai.NewClient(config)
 
-	createImagePrompt := "Parrot on a skateboard performs a trick, cartoon style, natural light, high detail"
-	resp, err := client.CreateImageFromPrompt(ctx, createImagePrompt)
+	createImagePrompt := "Key Visual for selling flu medicine."
+	numOfImages := 3
+	resp, err := client.CreateImageFromPrompt(ctx, createImagePrompt, numOfImages)
 	if err != nil {
 		fmt.Printf("Error occured: %v\n", err)
 		return

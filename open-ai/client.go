@@ -13,16 +13,20 @@ import (
 type Client struct {
 	// openapi client used by this struct
 	oaclient *openai.Client
-	// default OpenAPI model to be used
+	// default OpenAPI model to be used for prompts
 	// for now the default is set to GPT4oMini
-	defaultModel string
+	defaultPromptModel string
+	// default OpenAPI model to be used for generating images
+	// for now the default is set to DALL-E-2 for support on creating multiple images up to 10 images at once
+	defaultImageGenerationModel string
 }
 
 // NewClient() creates a new Client and set the default model to GPT4oMini
 func NewClient(config config.Config) Client {
 	return Client{
-		oaclient:     openai.NewClient(config.APIKey),
-		defaultModel: openai.GPT4oMini,
+		oaclient:                    openai.NewClient(config.APIKey),
+		defaultPromptModel:          openai.GPT4oMini,
+		defaultImageGenerationModel: openai.CreateImageModelDallE2,
 	}
 }
 
@@ -31,7 +35,7 @@ func (c *Client) AskPrompt(ctx context.Context, prompt string) (string, error) {
 	resp, err := c.oaclient.CreateChatCompletion(
 		ctx,
 		openai.ChatCompletionRequest{
-			Model: c.defaultModel,
+			Model: c.defaultPromptModel,
 			Messages: []openai.ChatCompletionMessage{
 				{
 					Role:    openai.ChatMessageRoleUser,
@@ -59,7 +63,7 @@ func (c *Client) AskPromptWithImages(ctx context.Context, request ImageRequest) 
 	resp, err := c.oaclient.CreateChatCompletion(
 		ctx,
 		openai.ChatCompletionRequest{
-			Model: c.defaultModel,
+			Model: c.defaultPromptModel,
 			Messages: []openai.ChatCompletionMessage{
 				{
 					Role:         openai.ChatMessageRoleUser,
@@ -77,21 +81,28 @@ func (c *Client) AskPromptWithImages(ctx context.Context, request ImageRequest) 
 	return resp.Choices[0].Message.Content, nil
 }
 
-// Create an image based on a given prompt.
-// TODO: For now the image will be given as a URL.
+// Create images based on a given prompt.
+// TODO: For now the images will be given as a URL.
 // We could change this to save created image to local later if we want.
-func (c *Client) CreateImageFromPrompt(ctx context.Context, prompt string) (string, error) {
+func (c *Client) CreateImageFromPrompt(ctx context.Context, prompt string, numOfImages int) ([]string, error) {
 	reqUrl := openai.ImageRequest{
+		Model:          c.defaultImageGenerationModel,
 		Prompt:         prompt,
 		Size:           openai.CreateImageSize256x256, // default to 256x256 for now
 		ResponseFormat: openai.CreateImageResponseFormatURL,
-		N:              1,
+		N:              numOfImages,
 	}
 
 	respUrl, err := c.oaclient.CreateImage(ctx, reqUrl)
 	if err != nil {
 		fmt.Printf("Image creation error: %v\n", err)
-		return "", err
+		return nil, err
 	}
-	return respUrl.Data[0].URL, nil
+
+	imageURLs := make([]string, len(respUrl.Data))
+	for idx, data := range respUrl.Data {
+		imageURLs[idx] = data.URL
+	}
+
+	return imageURLs, nil
 }
