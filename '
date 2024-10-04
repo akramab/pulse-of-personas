@@ -1,0 +1,17 @@
+package openai
+
+import (
+	"bg-proto/config"
+
+	"github.com/sashabaranov/go-openai"
+)
+
+type Client struct {
+	oaclient *openai.Client
+}
+
+func NewClient(config config.Config) Client {
+	return Client{
+		oaclient: openai.NewClient(config.APIKey),
+	}
+}
