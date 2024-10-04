@@ -18,9 +18,9 @@ func main() {
 		},
 	}
 
-	resp, err := client.DescribeImages(imageRequest)
+	resp, err := client.AskPromptWithImages(imageRequest)
 	if err != nil {
-		fmt.Printf("ChatCompletion error: %v\n", err)
+		fmt.Printf("Error occured: %v\n", err)
 		return
 	}
 
