@@ -2,6 +2,7 @@ package main
 
 import (
 	"bg-proto/config"
+	openai "bg-proto/open-ai"
 	"bg-proto/routers"
 	uscensus "bg-proto/us-census"
 	"fmt"
@@ -16,6 +17,7 @@ import (
 func main() {
 	config := config.NewConfig()
 	censusClient := uscensus.NewClient(config)
+	openaiClient := openai.NewClient(config)
 
 	r := chi.NewRouter()
 	r.Use(cors.Handler(cors.Options{
@@ -31,9 +33,10 @@ func main() {
 
 	r.Route("/", func(r chi.Router) {
 		r.Mount("/uscensus", routers.USCensusRouter(censusClient))
+		r.Mount("/openai", routers.OpenAIRouter(openaiClient))
 	})
 
-	port := 8080
+	port := 9090
 	defaultTimeout := 100 * time.Second
 	address := fmt.Sprintf(":%d", port)
 	srv := http.Server{

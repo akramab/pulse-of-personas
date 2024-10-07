@@ -70,6 +70,8 @@ func (c *clientImpl) AskPromptWithImages(ctx context.Context, request ImageReque
 		return "", err
 	}
 
+	fmt.Println(chatMessagePart)
+
 	resp, err := c.oaclient.CreateChatCompletion(
 		ctx,
 		openai.ChatCompletionRequest{
