@@ -1,14 +1,13 @@
 import * as React from "react";
-
 import { alpha } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
-import AppNavbar from "./components/AppNavbar";
-import Header from "./components/Header";
-import MainGrid from "./components/MainGrid";
+import Typography from "@mui/material/Typography";
 import SideMenu from "./components/SideMenu";
+import AppNavbar from "./components/AppNavbar";
 import AppTheme from "../shared-theme/AppTheme";
+import ConstructionIcon from "@mui/icons-material/Construction"; // Import the construction icon
 import {
   chartsCustomizations,
   dataGridCustomizations,
@@ -23,7 +22,7 @@ const xThemeComponents = {
   ...treeViewCustomizations,
 };
 
-export default function Dashboard(props) {
+export default function UnderConstruction(props) {
   return (
     <AppTheme {...props} themeComponents={xThemeComponents}>
       <CssBaseline enableColorScheme />
@@ -45,13 +44,20 @@ export default function Dashboard(props) {
             spacing={2}
             sx={{
               alignItems: "center",
+              justifyContent: "center",
+              minHeight: "100vh", // Center content vertically
               mx: 3,
               pb: 5,
               mt: { xs: 8, md: 0 },
             }}
           >
-            <Header />
-            <MainGrid />
+            {/* Add construction icon */}
+            <ConstructionIcon sx={{ fontSize: 100, color: "primary.main" }} />
+
+            {/* "UNDER CONSTRUCTION" text */}
+            <Typography variant="h2" align="center">
+              UNDER CONSTRUCTION
+            </Typography>
           </Stack>
         </Box>
       </Box>
