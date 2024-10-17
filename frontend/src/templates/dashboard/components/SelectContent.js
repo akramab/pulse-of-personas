@@ -63,7 +63,10 @@ export default function SelectContent() {
             <DevicesRoundedIcon sx={{ fontSize: "1rem" }} />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary="AdPulse AI" secondary="Customer Insights" />
+        <ListItemText
+          primary="Pulse of Personas"
+          secondary="Customer Insights"
+        />
       </MenuItem>
       <MenuItem value={10}>
         <ListItemAvatar>

@@ -16,8 +16,8 @@ export default function Copyright(props) {
       ]}
     >
       {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        AdPulse AI
+      <Link color="inherit" href="https://www.linkedin.com/in/mfarhan0304/">
+        Pulse of Personas
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
