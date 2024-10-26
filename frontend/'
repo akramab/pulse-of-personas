@@ -5,6 +5,7 @@ import { useRef, useState } from 'react';
 import { m, useScroll, useSpring, useTransform, useMotionValueEvent } from 'framer-motion';
 
 import Box from '@mui/material/Box';
+import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
@@ -21,7 +22,6 @@ import { useResponsive } from 'src/hooks/use-responsive';
 import { _mock } from 'src/_mock';
 import { CONFIG } from 'src/config-global';
 import { textGradient } from 'src/theme/styles';
-import { GoogleIcon, FacebookIcon, InstagramIcon } from 'src/assets/icons';
 
 import { Iconify } from 'src/components/iconify';
 import { SvgColor } from 'src/components/svg-color';
@@ -168,6 +168,21 @@ export function HomeHero({ sx, ...other }: BoxProps) {
           </Button>
         </Stack>
       </AnimatedDiv>
+
+      <AnimatedDiv>
+        <Button
+          color="inherit"
+          size="large"
+          variant="outlined"
+          target="_blank"
+          rel="noopener"
+          href={paths.figmaUrl}
+          startIcon={<Iconify width={24} icon="solar:figma-outline" />}
+          sx={{ borderColor: 'text.primary' }}
+        >
+          Figma preview
+        </Button>
+      </AnimatedDiv>
     </Box>
   );
 
@@ -180,19 +195,20 @@ export function HomeHero({ sx, ...other }: BoxProps) {
       </AnimatedDiv>
 
       <Stack spacing={2.5} direction="row">
-        {[
-          { name: 'facebook', component: <FacebookIcon /> },
-          { name: 'google', component: <GoogleIcon /> },
-          { name: 'instagram', component: <InstagramIcon /> },
-        ].map((platform) => (
-          <AnimatedDiv key={platform.name}>
-            {platform.name === 'nextjs' ? (
+        {['js', 'ts', 'nextjs', 'vite', 'figma'].map((platform) => (
+          <AnimatedDiv key={platform}>
+            {platform === 'nextjs' ? (
               <SvgColor
-                src={`${CONFIG.assetsDir}/assets/icons/platforms/ic-${platform.name}.svg`}
+                src={`${CONFIG.assetsDir}/assets/icons/platforms/ic-${platform}.svg`}
                 sx={{ width: 24, height: 24 }}
               />
             ) : (
-              platform.component
+              <Box
+                component="img"
+                alt={platform}
+                src={`${CONFIG.assetsDir}/assets/icons/platforms/ic-${platform}.svg`}
+                sx={{ width: 24, height: 24 }}
+              />
             )}
           </AnimatedDiv>
         ))}

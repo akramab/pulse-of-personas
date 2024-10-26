@@ -246,7 +246,7 @@ export function Texts({ sx, ...other }: BoxProps) {
           animate={{ x: ['0%', '-50%'] }}
           transition={{ duration: 64, ease: 'linear', repeat: Infinity }}
         >
-          Minimal Design System Minimal Design System
+          Pulse of Personas Pulse of Personas
         </m.text>
       </Box>
     </Box>
