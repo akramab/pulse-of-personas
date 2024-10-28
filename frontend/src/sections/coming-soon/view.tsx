@@ -46,34 +46,11 @@ export function ComingSoonView() {
         <TimeBlock label="seconds" value={countdown.seconds} />
       </Stack>
 
-      <TextField
-        fullWidth
-        placeholder="Enter your email"
-        InputProps={{
-          endAdornment: (
-            <InputAdornment position="end">
-              <Button variant="contained" size="large">
-                Notify me
-              </Button>
-            </InputAdornment>
-          ),
-          sx: {
-            pr: 0.5,
-            [`&.${outlinedInputClasses.focused}`]: {
-              boxShadow: (theme) => theme.customShadows.z20,
-              transition: (theme) =>
-                theme.transitions.create(['box-shadow'], {
-                  duration: theme.transitions.duration.shorter,
-                }),
-              [`& .${outlinedInputClasses.notchedOutline}`]: {
-                border: (theme) =>
-                  `solid 1px ${varAlpha(theme.vars.palette.grey['500Channel'], 0.32)}`,
-              },
-            },
-          },
-        }}
-        sx={{ my: 5 }}
-      />
+      <Box gap={1} display="flex" justifyContent="center" sx={{ my: 5 }}>
+        <Button variant="contained" size="large" href="/dashboard" color="primary">
+          Return to Dashboard
+        </Button>
+      </Box>
 
       <Box gap={1} display="flex" justifyContent="center">
         {_socials.map((social) => (

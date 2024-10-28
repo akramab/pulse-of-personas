@@ -64,7 +64,7 @@ type Props = {
   currentProduct?: IProductItem;
 };
 
-export function CampaignNewEditForm({ currentProduct }: Props) {
+export function CampaignDesignGuidelineNewEditForm({ currentProduct }: Props) {
   const router = useRouter();
 
   const [includeTaxes, setIncludeTaxes] = useState(false);
@@ -153,18 +153,16 @@ export function CampaignNewEditForm({ currentProduct }: Props) {
   const renderDetails = (
     <Card>
       <CardHeader
-        title="Details"
-        subheader="Title, product(s) image(s), campaign prompt..."
+        title="Design Guideline"
+        subheader="Upload your own design guideline document for better Key Visual generation!"
         sx={{ mb: 3 }}
       />
 
       <Divider />
 
       <Stack spacing={3} sx={{ p: 3 }}>
-        <Field.Text name="name" label="Campaign name" />
-
         <Stack spacing={1.5}>
-          <Typography variant="subtitle2">Product(s) Image(s)</Typography>
+          <Typography variant="subtitle2">Design Guideline File</Typography>
           <Field.Upload
             multiple
             thumbnail
@@ -174,11 +172,6 @@ export function CampaignNewEditForm({ currentProduct }: Props) {
             onRemoveAll={handleRemoveAllFiles}
             onUpload={() => console.info('ON UPLOAD')}
           />
-        </Stack>
-
-        <Stack spacing={1.5}>
-          <Typography variant="subtitle2">Additional Details (prompt)</Typography>
-          <Field.Editor name="description" sx={{ maxHeight: 480 }} />
         </Stack>
       </Stack>
     </Card>
@@ -349,17 +342,15 @@ export function CampaignNewEditForm({ currentProduct }: Props) {
       <Stack spacing={{ xs: 3, md: 5 }} sx={{ mx: 'auto', maxWidth: { xs: 720, xl: 880 } }}>
         {renderDetails}
 
-        {renderProperties}
-
         <Stack justifyContent="flex-end" direction="row" spacing={2} sx={{ mt: 3 }}>
           <LoadingButton
             type="button"
             variant="contained"
             size="large"
             loading={isSubmitting}
-            href="/dashboard/campaign/new/design-guideline"
+            href="/dashboard"
           >
-            {!currentProduct ? 'Next' : 'Save changes'}
+            {!currentProduct ? 'Create' : 'Save changes'}
           </LoadingButton>
         </Stack>
       </Stack>
