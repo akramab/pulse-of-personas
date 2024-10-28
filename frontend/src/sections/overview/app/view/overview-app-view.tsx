@@ -31,16 +31,19 @@ export function OverviewAppView() {
 
   const theme = useTheme();
 
+  const mockDisplayName = 'Team #1';
+
   return (
     <DashboardContent maxWidth="xl">
       <Grid container spacing={3}>
         <Grid xs={12} md={8}>
           <AppWelcome
-            title={`Welcome back 👋 \n ${user?.displayName}`}
-            description="If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything."
+            // title={`Welcome back 👋 \n ${user?.displayName}`}
+            title={`Welcome back 👋 \n ${mockDisplayName}`}
+            description="Your AI-powered toolkit is ready to help you craft smarter, more effective marketing campaigns."
             img={<SeoIllustration hideBackground />}
             action={
-              <Button variant="contained" color="primary">
+              <Button variant="contained" color="primary" href="/dashboard/campaign/new">
                 Go now
               </Button>
             }
@@ -53,9 +56,9 @@ export function OverviewAppView() {
 
         <Grid xs={12} md={4}>
           <AppWidgetSummary
-            title="Total active users"
+            title="Engaged Users"
             percent={2.6}
-            total={18765}
+            total={18765231}
             chart={{
               categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
               series: [15, 18, 12, 51, 68, 11, 39, 37],
@@ -65,7 +68,7 @@ export function OverviewAppView() {
 
         <Grid xs={12} md={4}>
           <AppWidgetSummary
-            title="Total installed"
+            title="Total campaigns launched"
             percent={0.2}
             total={4876}
             chart={{
@@ -78,9 +81,9 @@ export function OverviewAppView() {
 
         <Grid xs={12} md={4}>
           <AppWidgetSummary
-            title="Total downloads"
+            title="Conversions"
             percent={-0.1}
-            total={678}
+            total={6782123}
             chart={{
               colors: [theme.vars.palette.error.main],
               categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
@@ -91,8 +94,8 @@ export function OverviewAppView() {
 
         <Grid xs={12} md={6} lg={4}>
           <AppCurrentDownload
-            title="Current download"
-            subheader="Downloaded by operating system"
+            title="Audience Insights"
+            subheader="Active users by device type"
             chart={{
               series: [
                 { label: 'Mac', value: 12244 },
@@ -106,7 +109,7 @@ export function OverviewAppView() {
 
         <Grid xs={12} md={6} lg={8}>
           <AppAreaInstalled
-            title="Area installed"
+            title="Engagement by region"
             subheader="(+43%) than last year"
             chart={{
               categories: [
@@ -153,43 +156,25 @@ export function OverviewAppView() {
           />
         </Grid>
 
-        <Grid xs={12} lg={8}>
-          <AppNewInvoice
-            title="New invoice"
-            tableData={_appInvoices}
-            headLabel={[
-              { id: 'id', label: 'Invoice ID' },
-              { id: 'category', label: 'Category' },
-              { id: 'price', label: 'Price' },
-              { id: 'status', label: 'Status' },
-              { id: '' },
-            ]}
-          />
+        <Grid xs={12} md={6} lg={4}>
+          <AppTopInstalledCountries title="Top engaged countries" list={_appInstalled} />
         </Grid>
 
         <Grid xs={12} md={6} lg={4}>
-          <AppTopRelated title="Related applications" list={_appRelated} />
-        </Grid>
-
-        <Grid xs={12} md={6} lg={4}>
-          <AppTopInstalledCountries title="Top installed countries" list={_appInstalled} />
-        </Grid>
-
-        <Grid xs={12} md={6} lg={4}>
-          <AppTopAuthors title="Top authors" list={_appAuthors} />
+          <AppTopAuthors title="Top campaign creators" list={_appAuthors} />
         </Grid>
 
         <Grid xs={12} md={6} lg={4}>
           <Box sx={{ gap: 3, display: 'flex', flexDirection: 'column' }}>
             <AppWidget
-              title="Conversion"
+              title="Succesful Conversion"
               total={38566}
               icon="solar:user-rounded-bold"
               chart={{ series: 48 }}
             />
 
             <AppWidget
-              title="Applications"
+              title="User Sign-Ups"
               total={55566}
               icon="fluent:mail-24-filled"
               chart={{
