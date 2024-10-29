@@ -348,7 +348,7 @@ export function CampaignDesignGuidelineNewEditForm({ currentProduct }: Props) {
             variant="contained"
             size="large"
             loading={isSubmitting}
-            href="/dashboard"
+            href="/dashboard/campaign/key-visual"
           >
             {!currentProduct ? 'Create' : 'Save changes'}
           </LoadingButton>

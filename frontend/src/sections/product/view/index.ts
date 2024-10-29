@@ -10,6 +10,8 @@ export * from './campaign-create-view';
 
 export * from './product-details-view';
 
+export * from './campaign-key-visual-view';
+
 export * from './product-shop-details-view';
 
 export * from './campaign-design-guideline-view';

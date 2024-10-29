@@ -34,6 +34,10 @@
 /* chart */
 @import './components/chart/styles.css';
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /** **************************************
 * Baseline
 *************************************** */
