@@ -38,7 +38,12 @@ export function CampaignKeyVisualView() {
       </Box>
 
       <Box gap={1} display="flex" justifyContent="center" sx={{ my: 5 }}>
-        <Button variant="contained" size="large" href="/dashboard" color="primary">
+        <Button
+          variant="contained"
+          size="large"
+          href="/dashboard/campaign/e99f09a7-dd88-49d5-b1c8-1daf80c2d7b2"
+          color="primary"
+        >
           Finalize Key Visual
         </Button>
       </Box>

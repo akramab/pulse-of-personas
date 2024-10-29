@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import MenuList from '@mui/material/MenuList';
 import MenuItem from '@mui/material/MenuItem';
 import IconButton from '@mui/material/IconButton';
+import { useTheme } from '@mui/material/styles';
 
 import { useBoolean } from 'src/hooks/use-boolean';
 
@@ -39,6 +40,8 @@ export function KanbanColumnToolBar({
   onDeleteColumn,
   onUpdateColumn,
 }: Props) {
+  const themeStyle = useTheme();
+
   const renameRef = useRef<HTMLInputElement>(null);
 
   const popover = usePopover();
@@ -96,11 +99,11 @@ export function KanbanColumnToolBar({
               name === 'Upcoming'
                 ? 'default'
                 : name === 'Underachieving'
-                  ? 'red'
+                  ? themeStyle.vars.palette.warning.main
                   : name === 'On Track'
-                    ? 'green'
+                    ? themeStyle.vars.palette.success.main
                     : name === 'Completed'
-                      ? 'grey'
+                      ? themeStyle.vars.palette.grey[500]
                       : 'default',
           }}
         />

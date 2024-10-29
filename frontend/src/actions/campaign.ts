@@ -33,6 +33,24 @@ export function useGetBoard() {
 
   const memoizedValue = useMemo(() => {
     const tasks = data?.board.tasks ?? {};
+    // Mapping each task's ID to a new CVS marketing campaign name
+    const newTaskNames = {
+      '1-task-e99f09a7-dd88-49d5-b1c8-1daf80c2d7b2': 'CVS Fever Medicine Campaign',
+      '2-task-e99f09a7-dd88-49d5-b1c8-1daf80c2d7b3': 'CVS Allergy Relief Campaign',
+      '3-task-e99f09a7-dd88-49d5-b1c8-1daf80c2d7b4': 'CVS Cough Suppressant Campaign',
+      '4-task-e99f09a7-dd88-49d5-b1c8-1daf80c2d7b5': 'CVS Immune Booster Launch',
+      '5-task-e99f09a7-dd88-49d5-b1c8-1daf80c2d7b6': 'CVS Health App Promotion',
+      '6-task-e99f09a7-dd88-49d5-b1c8-1daf80c2d7b7': 'CVS Wellness Webinar Organization',
+    };
+
+    // Iterating over each column's tasks and updating the names
+    for (const columnId in tasks) {
+      tasks[columnId] = tasks[columnId].map((task) => ({
+        ...task,
+        name: newTaskNames[task.id] ?? task.name, // Fallback to the original name if not in the newTaskNames mapping
+      }));
+    }
+
     const columnFromAPI = data?.board.columns ?? [];
     const columns = columnFromAPI.map((column) => {
       const nameMapping = {
