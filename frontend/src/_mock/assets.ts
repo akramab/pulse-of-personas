@@ -473,6 +473,25 @@ export const _companyNames = [
 
 // ----------------------------------------------------------------------
 
+export const _products = [
+  'Cold & Flu Relief',
+  'Pain Relievers',
+  'Vitamins & Supplements',
+  'Skin Care',
+  'First Aid Supplies',
+  'Cough Drops',
+  'Allergy Relief',
+  'Eye Care',
+  'Oral Care',
+  'Hair Care',
+  'Deodorants',
+  'Baby Diapers',
+  'Baby Wipes',
+  'Feminine Hygiene',
+  'Hand Sanitizers',
+  'Face Masks',
+];
+
 export const _tags = [
   'Brainwave Activity',
   'Heart Rate',

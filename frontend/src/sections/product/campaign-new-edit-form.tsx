@@ -22,6 +22,7 @@ import { useRouter } from 'src/routes/hooks';
 
 import {
   _tags,
+  _products,
   PRODUCT_SIZE_OPTIONS,
   PRODUCT_GENDER_OPTIONS,
   PRODUCT_COLOR_NAME_OPTIONS,
@@ -176,6 +177,37 @@ export function CampaignNewEditForm({ currentProduct }: Props) {
           />
         </Stack>
 
+        <Stack spacing={1}>
+          <Typography variant="subtitle2">Selected Products</Typography>
+          <Field.Autocomplete
+            name="tags"
+            label="Selected products for campaign"
+            placeholder="+ Criteria"
+            multiple
+            freeSolo
+            disableCloseOnSelect
+            options={_products.map((option) => option)}
+            getOptionLabel={(option) => option}
+            renderOption={(props, option) => (
+              <li {...props} key={option}>
+                {option}
+              </li>
+            )}
+            renderTags={(selected, getTagProps) =>
+              selected.map((option, index) => (
+                <Chip
+                  {...getTagProps({ index })}
+                  key={option}
+                  label={option}
+                  size="small"
+                  color="info"
+                  variant="soft"
+                />
+              ))
+            }
+          />
+        </Stack>
+
         <Stack spacing={1.5}>
           <Typography variant="subtitle2">Additional Details (prompt)</Typography>
           <Field.Editor name="description" sx={{ maxHeight: 480 }} />
@@ -203,33 +235,36 @@ export function CampaignNewEditForm({ currentProduct }: Props) {
           </Stack>
         </Stack>
 
-        <Field.Autocomplete
-          name="tags"
-          label="AI Personalization Criteria"
-          placeholder="+ Criteria"
-          multiple
-          freeSolo
-          disableCloseOnSelect
-          options={_tags.map((option) => option)}
-          getOptionLabel={(option) => option}
-          renderOption={(props, option) => (
-            <li {...props} key={option}>
-              {option}
-            </li>
-          )}
-          renderTags={(selected, getTagProps) =>
-            selected.map((option, index) => (
-              <Chip
-                {...getTagProps({ index })}
-                key={option}
-                label={option}
-                size="small"
-                color="info"
-                variant="soft"
-              />
-            ))
-          }
-        />
+        <Stack spacing={1}>
+          <Typography variant="subtitle2">Personalization Criteria</Typography>
+          <Field.Autocomplete
+            name="tags"
+            label="AI Personalization Criteria"
+            placeholder="+ Criteria"
+            multiple
+            freeSolo
+            disableCloseOnSelect
+            options={_tags.map((option) => option)}
+            getOptionLabel={(option) => option}
+            renderOption={(props, option) => (
+              <li {...props} key={option}>
+                {option}
+              </li>
+            )}
+            renderTags={(selected, getTagProps) =>
+              selected.map((option, index) => (
+                <Chip
+                  {...getTagProps({ index })}
+                  key={option}
+                  label={option}
+                  size="small"
+                  color="info"
+                  variant="soft"
+                />
+              ))
+            }
+          />
+        </Stack>
 
         <Stack spacing={1}>
           <Typography variant="subtitle2">Budget</Typography>
