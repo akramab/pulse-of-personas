@@ -4,6 +4,8 @@ import { CONFIG } from 'src/config-global';
 
 import { ProductDetailsView } from 'src/sections/product/view';
 
+import { CampaignDetailsView } from 'src/sections/kanban/view';
+
 // ----------------------------------------------------------------------
 
 export const metadata = { title: `Product details | Dashboard - ${CONFIG.appName}` };
@@ -17,7 +19,8 @@ export default async function Page({ params }: Props) {
 
   const { product } = await getProduct(id);
 
-  return <ProductDetailsView product={product} />;
+  // return <ProductDetailsView product={product} />;
+  return <CampaignDetailsView />;
 }
 
 // ----------------------------------------------------------------------
