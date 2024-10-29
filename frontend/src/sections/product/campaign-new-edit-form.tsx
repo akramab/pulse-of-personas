@@ -181,7 +181,7 @@ export function CampaignNewEditForm({ currentProduct }: Props) {
           <Typography variant="subtitle2">Selected Products</Typography>
           <Field.Autocomplete
             name="tags"
-            label="Selected products for campaign"
+            label="Select products for campaign"
             placeholder="+ Criteria"
             multiple
             freeSolo

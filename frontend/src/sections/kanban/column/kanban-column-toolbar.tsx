@@ -90,7 +90,19 @@ export function KanbanColumnToolBar({
           onChange={handleChangeName}
           onKeyUp={handleKeyUpUpdateColumn}
           inputProps={{ id: `input-column-${name}` }}
-          sx={{ mx: 1 }}
+          sx={{
+            mx: 1,
+            color:
+              name === 'Upcoming'
+                ? 'default'
+                : name === 'Underachieving'
+                  ? 'red'
+                  : name === 'On Track'
+                    ? 'green'
+                    : name === 'Completed'
+                      ? 'grey'
+                      : 'default',
+          }}
         />
 
         <IconButton size="small" color="inherit" onClick={onToggleAddTask}>
