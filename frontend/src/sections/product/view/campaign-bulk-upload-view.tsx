@@ -6,26 +6,24 @@ import { DashboardContent } from 'src/layouts/dashboard';
 
 import { CustomBreadcrumbs } from 'src/components/custom-breadcrumbs';
 
-import { CampaignDesignGuidelineNewEditForm } from '../campaign-design-guideline-new-edit-form';
+import { CampaignBulkUploadNewEditForm } from '../campaign-bulk-upload-new-edit-form';
 
 // ----------------------------------------------------------------------
 
-export function CampaignDesignGuidelineView() {
+export function CampaignBulkUploadView() {
   return (
     <DashboardContent>
       <CustomBreadcrumbs
         heading="Create a new campaign"
         links={[
           { name: 'Dashboard', href: paths.dashboard.root },
-          { name: 'Campaign', href: paths.dashboard.root },
-          { name: 'New campaign', href: paths.dashboard.campaign.new },
-          { name: 'Campaign details', href: paths.dashboard.campaign.newdetails },
-          { name: 'Design guideline' },
+          { name: 'Campaign', href: paths.dashboard.product.root },
+          { name: 'New campaign' },
         ]}
         sx={{ mb: { xs: 3, md: 5 } }}
       />
 
-      <CampaignDesignGuidelineNewEditForm />
+      <CampaignBulkUploadNewEditForm />
     </DashboardContent>
   );
 }

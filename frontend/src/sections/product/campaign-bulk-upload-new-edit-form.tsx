@@ -65,7 +65,7 @@ type Props = {
   currentProduct?: IProductItem;
 };
 
-export function CampaignDesignGuidelineNewEditForm({ currentProduct }: Props) {
+export function CampaignBulkUploadNewEditForm({ currentProduct }: Props) {
   const router = useRouter();
 
   const [includeTaxes, setIncludeTaxes] = useState(false);
@@ -156,8 +156,8 @@ export function CampaignDesignGuidelineNewEditForm({ currentProduct }: Props) {
   const renderDetails = (
     <Card>
       <CardHeader
-        title="Design Guideline"
-        subheader="Upload your own design guideline document for better Key Visual generation!"
+        title="Bulk Upload Product Data"
+        subheader="Your file (CSV, XLSX, PDF, etc.) should contain columns like ‘Image’, ‘Product Name’, ‘Description’, ‘Usage Guidelines’, and any others that could better describe each product to streamline Key Visual generation and targeted marketing."
         sx={{ mb: 3 }}
       />
 
@@ -165,7 +165,7 @@ export function CampaignDesignGuidelineNewEditForm({ currentProduct }: Props) {
 
       <Stack spacing={3} sx={{ p: 3 }}>
         <Stack spacing={1.5}>
-          <Typography variant="subtitle2">Design Guideline File</Typography>
+          <Typography variant="subtitle2">Product Data File</Typography>
           <Upload multiple value={files} onDrop={handleDrop} onRemove={handleRemoveFile} />
         </Stack>
       </Stack>
@@ -343,9 +343,9 @@ export function CampaignDesignGuidelineNewEditForm({ currentProduct }: Props) {
             variant="contained"
             size="large"
             loading={isSubmitting}
-            href="/dashboard/campaign/key-visual"
+            href="/dashboard/campaign/new/details"
           >
-            {!currentProduct ? 'Create' : 'Save changes'}
+            {!currentProduct ? 'Next' : 'Save changes'}
           </LoadingButton>
         </Stack>
       </Stack>

@@ -14,4 +14,6 @@ export * from './campaign-key-visual-view';
 
 export * from './product-shop-details-view';
 
+export * from './campaign-bulk-upload-view';
+
 export * from './campaign-design-guideline-view';

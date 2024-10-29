@@ -17,8 +17,9 @@ export function CampaignCreateView() {
         heading="Create a new campaign"
         links={[
           { name: 'Dashboard', href: paths.dashboard.root },
-          { name: 'Campaign', href: paths.dashboard.product.root },
-          { name: 'New campaign' },
+          { name: 'Campaign', href: paths.dashboard.root },
+          { name: 'New campaign', href: paths.dashboard.campaign.new },
+          { name: 'Campaign details' },
         ]}
         sx={{ mb: { xs: 3, md: 5 } }}
       />
