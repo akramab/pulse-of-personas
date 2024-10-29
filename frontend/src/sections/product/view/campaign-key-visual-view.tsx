@@ -2,6 +2,7 @@
 
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
 import { paths } from 'src/routes/paths';
 
@@ -29,6 +30,12 @@ export function CampaignKeyVisualView() {
       />
 
       <CampaignKeyVisualSwipeCards />
+
+      <Box gap={1} display="flex" justifyContent="center">
+        <Typography variant="h6">
+          Swipe left to reject, swipe right to accept AI generated key visual(s).
+        </Typography>
+      </Box>
 
       <Box gap={1} display="flex" justifyContent="center" sx={{ my: 5 }}>
         <Button variant="contained" size="large" href="/dashboard" color="primary">
