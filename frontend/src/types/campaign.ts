@@ -12,7 +12,6 @@ export type IAdSetTableFilters = {
 export type IAd = {
   id: string;
   channel: string;
-  targetSegment: string;
   adType: string;
   budget: number;
   estimatedImpressions: number;
@@ -26,6 +25,7 @@ export type IAd = {
 export type IAdSet = {
   id: string;
   name: string;
+  targetSegment: string;
   startDate: IDateValue;
   endDate: IDateValue;
   totalBudget: number;

@@ -29,7 +29,7 @@ import { fIsAfter, fIsBetween, fToNow } from 'src/utils/format-time';
 
 import { varAlpha } from 'src/theme/styles';
 import { DashboardContent } from 'src/layouts/dashboard';
-import { _campaign, CAMPAIGN_OPTIONS, CAMPAIGN_STATUS_OPTIONS } from 'src/_mock';
+import { _campaign } from 'src/_mock';
 
 import { Label } from 'src/components/label';
 import { toast } from 'src/components/snackbar';
@@ -171,14 +171,14 @@ export function CampaignGeneratorList() {
 
   const handleEditRow = useCallback(
     (id: string) => {
-      router.push(paths.dashboard.invoice.edit(id));
+      router.push(paths.dashboard.adset.edit(id));
     },
     [router]
   );
 
   const handleViewRow = useCallback(
     (id: string) => {
-      router.push(paths.dashboard.invoice.details(id));
+      router.push(paths.dashboard.adset.details(id));
     },
     [router]
   );

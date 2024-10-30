@@ -700,17 +700,17 @@ export const _campaign = {
     {
       id: '1',
       name: 'New Year Health Boost',
+      targetSegment: 'General population, New Year resolution enthusiasts',
       startDate: new Date(2025, 1, 1),
       endDate: new Date(2025, 1, 31),
       totalBudget: 10000,
       totalEstimatedImpressions: 500000,
       totalEstimatedClicks: 50000,
-      status: 'upcoming',
+      status: 'waiting approval',
       ads: [
         {
           id: '1',
           channel: 'Facebook',
-          targetSegment: 'General population, New Year resolution enthusiasts',
           adType: 'Display Banner',
           budget: 3333,
           estimatedImpressions: 166667,
@@ -723,7 +723,6 @@ export const _campaign = {
         {
           id: '2',
           channel: 'Instagram',
-          targetSegment: 'General population, New Year resolution enthusiasts',
           adType: 'Display Banner',
           budget: 3333,
           estimatedImpressions: 166667,
@@ -736,7 +735,6 @@ export const _campaign = {
         {
           id: '3',
           channel: 'Google Display',
-          targetSegment: 'General population, New Year resolution enthusiasts',
           adType: 'Display Banner',
           budget: 3334,
           estimatedImpressions: 166666,
@@ -751,6 +749,7 @@ export const _campaign = {
     {
       id: '2',
       name: 'Presidential Election Focus',
+      targetSegment: 'Adults 30-60, politically engaged users',
       startDate: new Date(2025, 7, 1),
       endDate: new Date(2025, 7, 31),
       totalBudget: 15000,
@@ -761,7 +760,6 @@ export const _campaign = {
         {
           id: '4',
           channel: 'YouTube',
-          targetSegment: 'Adults 30-60, politically engaged users',
           adType: 'Video Ad',
           budget: 5000,
           estimatedImpressions: 250000,
@@ -774,7 +772,6 @@ export const _campaign = {
         {
           id: '5',
           channel: 'Twitter',
-          targetSegment: 'Adults 30-60, politically engaged users',
           adType: 'Sponsored Post',
           budget: 5000,
           estimatedImpressions: 250000,
@@ -787,7 +784,6 @@ export const _campaign = {
         {
           id: '6',
           channel: 'Google Search',
-          targetSegment: 'Adults 30-60, politically engaged users',
           adType: 'Search Ad',
           budget: 5000,
           estimatedImpressions: 250000,
@@ -802,17 +798,17 @@ export const _campaign = {
     {
       id: '3',
       name: 'Summer Wellness Push',
+      targetSegment: 'Young adults, fitness enthusiasts, families',
       startDate: new Date(2025, 6, 1),
       endDate: new Date(2025, 8, 31),
       totalBudget: 20000,
       totalEstimatedImpressions: 1000000,
       totalEstimatedClicks: 100000,
-      status: 'upcoming',
+      status: 'waiting approval',
       ads: [
         {
           id: '7',
           channel: 'Instagram',
-          targetSegment: 'Young adults, fitness enthusiasts, families',
           adType: 'Carousel Ad',
           budget: 6667,
           estimatedImpressions: 333333,
@@ -825,7 +821,6 @@ export const _campaign = {
         {
           id: '8',
           channel: 'Pinterest',
-          targetSegment: 'Young adults, fitness enthusiasts, families',
           adType: 'Story',
           budget: 6667,
           estimatedImpressions: 333333,
@@ -838,7 +833,6 @@ export const _campaign = {
         {
           id: '9',
           channel: 'Google Display',
-          targetSegment: 'Young adults, fitness enthusiasts, families',
           adType: 'Display Banner',
           budget: 6666,
           estimatedImpressions: 333334,
@@ -853,6 +847,7 @@ export const _campaign = {
     {
       id: '4',
       name: 'Back-to-School Essentials',
+      targetSegment: 'Parents, students',
       startDate: new Date(2025, 9, 1),
       endDate: new Date(2025, 9, 30),
       totalBudget: 10000,
@@ -863,7 +858,6 @@ export const _campaign = {
         {
           id: '10',
           channel: 'Facebook',
-          targetSegment: 'Parents, students',
           adType: 'Display Banner',
           budget: 3333,
           estimatedImpressions: 166667,
@@ -876,7 +870,6 @@ export const _campaign = {
         {
           id: '11',
           channel: 'Google Display',
-          targetSegment: 'Parents, students',
           adType: 'Short-Form Video',
           budget: 3333,
           estimatedImpressions: 166667,
@@ -889,7 +882,6 @@ export const _campaign = {
         {
           id: '12',
           channel: 'TikTok',
-          targetSegment: 'Parents, students',
           adType: 'Short-Form Video',
           budget: 3334,
           estimatedImpressions: 166666,
@@ -904,6 +896,7 @@ export const _campaign = {
     {
       id: '5',
       name: 'Halloween and Fall Focus',
+      targetSegment: 'Families, parents, young adults',
       startDate: new Date(2025, 10, 1),
       endDate: new Date(2025, 10, 31),
       totalBudget: 15000,
@@ -914,7 +907,6 @@ export const _campaign = {
         {
           id: '13',
           channel: 'YouTube',
-          targetSegment: 'Families, parents, young adults',
           adType: 'Display Banner',
           budget: 5000,
           estimatedImpressions: 250000,
@@ -927,7 +919,6 @@ export const _campaign = {
         {
           id: '14',
           channel: 'Facebook',
-          targetSegment: 'Families, parents, young adults',
           adType: 'Story',
           budget: 5000,
           estimatedImpressions: 250000,
@@ -940,7 +931,6 @@ export const _campaign = {
         {
           id: '15',
           channel: 'Programmatic Display',
-          targetSegment: 'Families, parents, young adults',
           adType: 'Display Banner',
           budget: 5000,
           estimatedImpressions: 250000,
@@ -955,17 +945,17 @@ export const _campaign = {
     {
       id: '6',
       name: 'Holiday Season',
+      targetSegment: 'General, gift buyers, wellness-focused',
       startDate: new Date(2025, 11, 1),
       endDate: new Date(2025, 12, 31),
       totalBudget: 20000,
       totalEstimatedImpressions: 1000000,
       totalEstimatedClicks: 100000,
-      status: 'upcoming',
+      status: 'waiting approval',
       ads: [
         {
           id: '16',
           channel: 'Instagram',
-          targetSegment: 'General, gift buyers, wellness-focused',
           adType: 'Carousel Ad',
           budget: 6667,
           estimatedImpressions: 333333,
@@ -978,7 +968,6 @@ export const _campaign = {
         {
           id: '17',
           channel: 'Google Display',
-          targetSegment: 'General, gift buyers, wellness-focused',
           adType: 'Display Banner',
           budget: 6667,
           estimatedImpressions: 333333,
@@ -991,7 +980,6 @@ export const _campaign = {
         {
           id: '18',
           channel: 'Facebook',
-          targetSegment: 'General, gift buyers, wellness-focused',
           adType: 'Display Banner',
           budget: 6666,
           estimatedImpressions: 333334,

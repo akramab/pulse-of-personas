@@ -153,6 +153,16 @@ export const paths = {
         edit: `${ROOTS.DASHBOARD}/campaign/${MOCK_ID}/edit`,
       },
     },
+    adset: {
+      root: `${ROOTS.DASHBOARD}/campaign/adset`,
+      new: `${ROOTS.DASHBOARD}/campaign/adset/new`,
+      details: (id: string) => `${ROOTS.DASHBOARD}/campaign/adset/${id}`,
+      edit: (id: string) => `${ROOTS.DASHBOARD}/campaign/adset/${id}/edit`,
+      demo: {
+        details: `${ROOTS.DASHBOARD}/campaign/adset/${MOCK_ID}`,
+        edit: `${ROOTS.DASHBOARD}/campaign/adset/${MOCK_ID}/edit`,
+      },
+    },
     post: {
       root: `${ROOTS.DASHBOARD}/post`,
       new: `${ROOTS.DASHBOARD}/post/new`,
