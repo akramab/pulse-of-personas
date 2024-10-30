@@ -1,9 +1,6 @@
-import type { IInvoice } from 'src/types/invoice';
+import type { IAdSet } from 'src/types/campaign';
 
-import Link from '@mui/material/Link';
-import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import Avatar from '@mui/material/Avatar';
 import Divider from '@mui/material/Divider';
 import MenuList from '@mui/material/MenuList';
 import MenuItem from '@mui/material/MenuItem';
@@ -11,19 +8,17 @@ import TableRow from '@mui/material/TableRow';
 import Checkbox from '@mui/material/Checkbox';
 import TableCell from '@mui/material/TableCell';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
 import ListItemText from '@mui/material/ListItemText';
 
 import { useBoolean } from 'src/hooks/use-boolean';
 
 import { fCurrency, fNumber } from 'src/utils/format-number';
-import { fDate, fIsAfter, fTime } from 'src/utils/format-time';
+import { fDate } from 'src/utils/format-time';
 
 import { Label } from 'src/components/label';
 import { Iconify } from 'src/components/iconify';
 import { ConfirmDialog } from 'src/components/custom-dialog';
 import { usePopover, CustomPopover } from 'src/components/custom-popover';
-import { IAdSet } from 'src/types/campaign';
 
 // ----------------------------------------------------------------------
 
@@ -99,11 +94,11 @@ export function AdSetTableRow({
             {/* TODO: This is still hardcoded */}
             {row.status === 'running'
               ? 'Running'
-                : row.status === 'upcoming'
+              : row.status === 'upcoming'
                 ? 'Upcoming'
-                  : row.status === 'waiting approval'
-                    ? 'Waiting Approval'
-                    : 'Done'}
+                : row.status === 'waiting approval'
+                  ? 'Waiting Approval'
+                  : 'Done'}
           </Label>
         </TableCell>
 

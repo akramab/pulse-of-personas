@@ -5,17 +5,16 @@ import type { IAdSet } from 'src/types/campaign';
 import { paths } from 'src/routes/paths';
 
 import { DashboardContent } from 'src/layouts/dashboard';
-
 import { CustomBreadcrumbs } from 'src/components/custom-breadcrumbs';
 
-import { AdSetDetails } from '../adset-details';
-import { Box, Button } from '@mui/material';
 import { _campaign } from 'src/_mock';
+import { Box, Button } from '@mui/material';
+import { AdSetDetails } from '../adset-details';
 
 // ----------------------------------------------------------------------
 
 type Props = {
-  adset: IAdSet;
+  adset?: IAdSet;
 };
 
 export function AdSetDetailsView({ adset }: Props) {
@@ -33,15 +32,15 @@ export function AdSetDetailsView({ adset }: Props) {
 
       <AdSetDetails adset={adset} />
 
-      {adset.status !== 'approved' && (
+      {adset?.status !== 'approved' && (
         <Box gap={1} display="flex" justifyContent="right" sx={{ my: 5 }}>
           <Button
             variant="contained"
             size="large"
             color="primary"
             onClick={() => {
-              _campaign.adSets[parseInt(adset.id)-1].status = "upcoming";
-              history.back();
+              _campaign.adSets[parseInt(adset?.id || '1', 10)-1].status = "upcoming";
+              window.history.back();
             }}
           >
             Approve

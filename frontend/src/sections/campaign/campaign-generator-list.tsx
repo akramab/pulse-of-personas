@@ -1,7 +1,5 @@
 'use client';
 
-import type { IInvoice, IInvoiceTableFilters } from 'src/types/invoice';
-
 import { useState, useCallback } from 'react';
 
 import Box from '@mui/material/Box';
@@ -11,7 +9,6 @@ import Card from '@mui/material/Card';
 import Table from '@mui/material/Table';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import Divider from '@mui/material/Divider';
 import Tooltip from '@mui/material/Tooltip';
 import TableBody from '@mui/material/TableBody';
 import { useTheme } from '@mui/material/styles';
@@ -19,13 +16,11 @@ import IconButton from '@mui/material/IconButton';
 
 import { paths } from 'src/routes/paths';
 import { useRouter } from 'src/routes/hooks';
-import { RouterLink } from 'src/routes/components';
 
 import { useBoolean } from 'src/hooks/use-boolean';
 import { useSetState } from 'src/hooks/use-set-state';
 
-import { sumBy } from 'src/utils/helper';
-import { fIsAfter, fIsBetween, fToNow } from 'src/utils/format-time';
+import { fIsAfter, fIsBetween } from 'src/utils/format-time';
 
 import { varAlpha } from 'src/theme/styles';
 import { DashboardContent } from 'src/layouts/dashboard';
@@ -106,9 +101,8 @@ export function CampaignGeneratorList() {
 
   const notFound = (!dataFiltered.length && canReset) || !dataFiltered.length;
 
-  const getAdSetLength = (status: string) => {
-    return tableData.filter((item) => item.status === status).length;
-  }
+  const getAdSetLength = (status: string) =>
+    tableData.filter((item) => item.status === status).length;
 
   const TABS = [
     {

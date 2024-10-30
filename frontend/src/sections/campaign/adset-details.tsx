@@ -1,12 +1,9 @@
 import type { IAdSet } from 'src/types/campaign';
 
-import { useState, useCallback } from 'react';
-
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Table from '@mui/material/Table';
 import Stack from '@mui/material/Stack';
-import Divider from '@mui/material/Divider';
 import { styled } from '@mui/material/styles';
 import TableRow from '@mui/material/TableRow';
 import TableHead from '@mui/material/TableHead';
@@ -15,25 +12,14 @@ import Typography from '@mui/material/Typography';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 
 import { fDate } from 'src/utils/format-time';
-import { fCurrency, fNumber } from 'src/utils/format-number';
+import { fNumber, fCurrency } from 'src/utils/format-number';
 
+import { _mock } from 'src/_mock';
 import { Label } from 'src/components/label';
 import { Image } from 'src/components/image';
 import { Scrollbar } from 'src/components/scrollbar';
 
 import { AdSetToolbar } from './adset-toolbar';
-import { _mock } from 'src/_mock';
-
-// ----------------------------------------------------------------------
-
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  [`& .${tableCellClasses.root}`]: {
-    textAlign: 'right',
-    borderBottom: 'none',
-    paddingTop: theme.spacing(1),
-    paddingBottom: theme.spacing(1),
-  },
-}));
 
 // ----------------------------------------------------------------------
 
@@ -42,7 +28,6 @@ type Props = {
 };
 
 export function AdSetDetails({ adset }: Props) {
-
   const renderList = (
     <Scrollbar sx={{ mt: 5 }}>
       <Table sx={{ minWidth: 960 }}>
@@ -73,7 +58,9 @@ export function AdSetDetails({ adset }: Props) {
 
               <TableCell>
                 <Box sx={{ maxWidth: 750 }}>
-                  <Typography variant="subtitle2" noWrap>{row.channel}</Typography>
+                  <Typography variant="subtitle2" noWrap>
+                    {row.channel}
+                  </Typography>
 
                   <Typography variant="body2" sx={{ color: 'text.secondary' }} noWrap>
                     {row.adType}
@@ -88,7 +75,12 @@ export function AdSetDetails({ adset }: Props) {
               <TableCell align="right">{fNumber(row.estimatedClicks)}</TableCell>
 
               <TableCell>
-                <Image alt={_mock.image.product(parseInt(row.id))} src={_mock.image.product(parseInt(row.id))} ratio="1/1" sx={{ borderRadius: 1, mb: 1 }} />
+                <Image
+                  alt={_mock.image.product(parseInt(row.id, 10))}
+                  src={_mock.image.product(parseInt(row.id, 10))}
+                  ratio="1/1"
+                  sx={{ borderRadius: 1, mb: 1 }}
+                />
               </TableCell>
 
               <TableCell>{row.headline}</TableCell>
@@ -103,9 +95,7 @@ export function AdSetDetails({ adset }: Props) {
 
   return (
     <>
-      <AdSetToolbar
-        adset={adset}
-      />
+      <AdSetToolbar adset={adset} />
 
       <Card sx={{ pt: 5, px: 5 }}>
         <Box

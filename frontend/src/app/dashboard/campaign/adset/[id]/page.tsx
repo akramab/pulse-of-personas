@@ -14,9 +14,9 @@ type Props = {
 export default function Page({ params }: Props) {
   const { id } = params;
 
-  const adset = _campaign.adSets.find((adset) => adset.id === id);
+  const currentAdset = _campaign.adSets.find((adset) => adset.id === id);
 
-  return <AdSetDetailsView adset={adset} />;
+  return <AdSetDetailsView adset={currentAdset} />;
 }
 
 // ----------------------------------------------------------------------
