@@ -31,6 +31,7 @@ import {
 
 import { toast } from 'src/components/snackbar';
 import { Form, Field, schemaHelper } from 'src/components/hook-form';
+import { ListComponent } from './view/list-component';
 
 // ----------------------------------------------------------------------
 
@@ -165,47 +166,17 @@ export function CampaignNewEditForm({ currentProduct }: Props) {
         <Field.Text name="name" label="Campaign name" />
 
         <Stack spacing={1.5}>
-          <Typography variant="subtitle2">Product(s) Image(s)</Typography>
-          <Field.Upload
-            multiple
-            thumbnail
-            name="images"
-            maxSize={3145728}
-            onRemove={handleRemoveFile}
-            onRemoveAll={handleRemoveAllFiles}
-            onUpload={() => console.info('ON UPLOAD')}
-          />
-        </Stack>
-
-        <Stack spacing={1}>
-          <Typography variant="subtitle2">Selected Products</Typography>
-          <Field.Autocomplete
-            name="tags"
-            label="Selected products for campaign"
-            placeholder="+ Criteria"
-            multiple
-            freeSolo
-            disableCloseOnSelect
-            options={_products.map((option) => option)}
-            getOptionLabel={(option) => option}
-            renderOption={(props, option) => (
-              <li {...props} key={option}>
-                {option}
-              </li>
-            )}
-            renderTags={(selected, getTagProps) =>
-              selected.map((option, index) => (
-                <Chip
-                  {...getTagProps({ index })}
-                  key={option}
-                  label={option}
-                  size="small"
-                  color="info"
-                  variant="soft"
-                />
-              ))
-            }
-          />
+          <Card
+            sx={{
+              height: { xs: 800 },
+              maxHeight: 415,
+              flexGrow: { md: 1 },
+              display: { md: 'flex' },
+              flexDirection: { md: 'column' },
+            }}
+          >
+            <ListComponent />
+          </Card>
         </Stack>
 
         <Stack spacing={1.5}>

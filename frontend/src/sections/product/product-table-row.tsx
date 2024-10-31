@@ -32,12 +32,17 @@ export function RenderCellPublish({ params }: ParamsProps) {
 
 export function RenderCellCreatedAt({ params }: ParamsProps) {
   return (
-    <Stack spacing={0.5}>
-      <Box component="span">{fDate(params.row.createdAt)}</Box>
-      <Box component="span" sx={{ typography: 'caption', color: 'text.secondary' }}>
-        {fTime(params.row.createdAt)}
-      </Box>
-    </Stack>
+    <Box
+      component="span"
+      sx={{
+        typography: 'caption',
+        color: 'text.secondary',
+        maxHeight: 80,
+        overflowY: 'auto',
+      }}
+    >
+      {params.row.description}
+    </Box>
   );
 }
 
@@ -86,11 +91,6 @@ export function RenderCellProduct({
           >
             {params.row.name}
           </Link>
-        }
-        secondary={
-          <Box component="div" sx={{ typography: 'body2', color: 'text.disabled' }}>
-            {params.row.category}
-          </Box>
         }
         sx={{ display: 'flex', flexDirection: 'column' }}
       />
