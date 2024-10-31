@@ -93,16 +93,16 @@ export function ListComponent() {
     "To ensure equitable access for all our customers, there is currently a two (2) product limit on all children's pain relief products at all CVS Pharmacy locations and cvs.com...",
   ];
   const productCoverUrls = [
-    'https://www.cvs.com/bizcontent/merchandising/productimages/high_res/5042858608.jpg?im=Resize%3D(1000,1000),aspect%3Dignore',
-    'https://www.cvs.com/bizcontent/merchandising/productimages/high_res/50428583111.jpg?im=Resize%3D(1000,1000),aspect%3Dignore',
-    'https://www.cvs.com/bizcontent/merchandising/productimages/high_res/5042889622.jpg?im=Resize%3D(1000,1000),aspect%3Dignore',
-    'https://www.cvs.com/bizcontent/merchandising/productimages/high_res/5042841679.jpg?im=Resize%3D(1000,1000),aspect%3Dignore',
-    'https://www.cvs.com/bizcontent/merchandising/productimages/high_res/5042847311.jpg?im=Resize%3D(1000,1000),aspect%3Dignore',
-    'https://www.cvs.com/bizcontent/merchandising/productimages/high_res/5042809358.jpg?im=Resize%3D(1000,1000),aspect%3Dignore',
-    'https://www.cvs.com/bizcontent/merchandising/productimages/high_res/5042847311.jpg?im=Resize%3D(1000,1000),aspect%3Dignore',
-    'https://www.cvs.com/bizcontent/merchandising/productimages/high_res/5042841205.jpg?im=Resize%3D(1000,1000),aspect%3Dignore',
-    'https://www.cvs.com/bizcontent/merchandising/productimages/high_res/5042836729.jpg?im=Resize%3D(1000,1000),aspect%3Dignore',
-    'https://www.cvs.com/bizcontent/merchandising/productimages/high_res/50428614129.jpg?im=Resize%3D(1000,1000),aspect%3Dignore',
+    'https://i.imgur.com/EXgLJae.jpeg',
+    'https://i.imgur.com/lMGHMSa.jpeg',
+    'https://i.imgur.com/A6o6IJq.jpeg',
+    'https://i.imgur.com/recWLlg.jpeg',
+    'https://i.imgur.com/u23ayq9.jpeg',
+    'https://i.imgur.com/L1GNXls.jpeg',
+    'https://i.imgur.com/CeC1sxy.jpeg',
+    'https://i.imgur.com/pE4D3oh.jpeg',
+    'https://i.imgur.com/tbqUvz6.jpeg',
+    'https://i.imgur.com/ZfpBNfe.jpeg',
   ];
 
   const productPrices = [10.99, 16.49, 5.49, 10.49, 6.99, 19.49, 49.99, 11.29, 12.49, 11.99];
