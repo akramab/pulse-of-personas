@@ -33,7 +33,9 @@ export function AdSetDetails({ adset }: Props) {
       <Table sx={{ minWidth: 960 }}>
         <TableHead>
           <TableRow>
-            <TableCell width={40} align="center">#</TableCell>
+            <TableCell width={40} align="center">
+              #
+            </TableCell>
 
             <TableCell align="center">Channel</TableCell>
 
@@ -77,7 +79,7 @@ export function AdSetDetails({ adset }: Props) {
               <TableCell>
                 <Image
                   alt={_mock.image.product(parseInt(row.id, 10))}
-                  src={_mock.image.product(parseInt(row.id, 10))}
+                  src={row.kvUrl}
                   ratio="1/1"
                   sx={{ borderRadius: 1, mb: 1 }}
                 />

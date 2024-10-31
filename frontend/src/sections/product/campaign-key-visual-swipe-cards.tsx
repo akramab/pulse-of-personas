@@ -49,42 +49,88 @@ type Props = CardProps & {
 
 // Card data
 const cardData: CardData[] = [
-  {
-    id: 1,
-    url: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  },
-  {
-    id: 2,
-    url: 'https://images.unsplash.com/photo-1512374382149-233c42b6a83b?q=80&w=2235&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  },
-  {
-    id: 3,
-    url: 'https://images.unsplash.com/photo-1539185441755-769473a23570?q=80&w=2342&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  },
-  {
-    id: 4,
-    url: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=2224&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  },
-  {
-    id: 5,
-    url: 'https://images.unsplash.com/photo-1516478177764-9fe5bd7e9717?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  },
-  {
-    id: 6,
-    url: 'https://images.unsplash.com/photo-1570464197285-9949814674a7?q=80&w=2273&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  },
-  {
-    id: 7,
-    url: 'https://images.unsplash.com/photo-1578608712688-36b5be8823dc?q=80&w=2187&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  },
-  {
-    id: 8,
-    url: 'https://images.unsplash.com/photo-1505784045224-1247b2b29cf3?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  },
+  { id: 1, url: 'https://i.imgur.com/FYKVYLS.jpeg' },
+  { id: 2, url: 'https://i.imgur.com/i4edUYl.jpeg' },
+  { id: 3, url: 'https://i.imgur.com/Kk9THZZ.jpeg' },
+  { id: 4, url: 'https://i.imgur.com/U007pWn.jpeg' },
+  { id: 5, url: 'https://i.imgur.com/tDfSdnq.jpeg' },
+
+  { id: 6, url: 'https://i.imgur.com/QJDveZQ.jpeg' },
+  { id: 7, url: 'https://i.imgur.com/hb1NLgT.jpeg' },
+  { id: 8, url: 'https://i.imgur.com/ukhLmNL.jpeg' },
+  { id: 9, url: 'https://i.imgur.com/VuOHCUS.jpeg' },
+  { id: 10, url: 'https://i.imgur.com/OE3jq1W.jpeg' },
+
+  { id: 11, url: 'https://i.imgur.com/90hPNgS.jpeg' },
+  { id: 12, url: 'https://i.imgur.com/lJwLfuI.jpeg' },
+  { id: 13, url: 'https://i.imgur.com/BZhIxY7.jpeg' },
+  { id: 14, url: 'https://i.imgur.com/yASn6Ab.jpeg' },
+  { id: 15, url: 'https://i.imgur.com/q6be19v.jpeg' },
+
+  { id: 16, url: 'https://i.imgur.com/O5tOKjR.jpeg' },
+  { id: 17, url: 'https://i.imgur.com/xIAWaMu.jpeg' },
+  { id: 18, url: 'https://i.imgur.com/uziCi8z.jpeg' },
+  { id: 19, url: 'https://i.imgur.com/AiY47Yn.jpeg' },
+  { id: 20, url: 'https://i.imgur.com/20BkocC.jpeg' },
+
+  { id: 21, url: 'https://i.imgur.com/Oo2A7mT.jpeg' },
+  { id: 22, url: 'https://i.imgur.com/McYLFn8.jpeg' },
+  { id: 23, url: 'https://i.imgur.com/ucXabZj.jpeg' },
+  { id: 24, url: 'https://i.imgur.com/uIfVIQT.jpeg' },
+  { id: 25, url: 'https://i.imgur.com/J55a7d7.jpeg' },
+];
+
+const cardData1: CardData[] = [
+  { id: 1, url: 'https://i.imgur.com/EDGSWBm.png' },
+  { id: 2, url: 'https://i.imgur.com/i4edUYl.jpeg' },
+  { id: 3, url: 'https://i.imgur.com/Kk9THZZ.jpeg' },
+  { id: 4, url: 'https://i.imgur.com/U007pWn.jpeg' },
+  { id: 5, url: 'https://i.imgur.com/tDfSdnq.jpeg' },
+  { id: 6, url: 'https://i.imgur.com/FYKVYLS.jpeg' },
+];
+
+const cardData2: CardData[] = [
+  { id: 1, url: 'https://i.imgur.com/MH3oIHV.png' },
+  { id: 2, url: 'https://i.imgur.com/hb1NLgT.jpeg' },
+  { id: 3, url: 'https://i.imgur.com/ukhLmNL.jpeg' },
+  { id: 4, url: 'https://i.imgur.com/VuOHCUS.jpeg' },
+  { id: 5, url: 'https://i.imgur.com/OE3jq1W.jpeg' },
+  { id: 6, url: 'https://i.imgur.com/QJDveZQ.jpeg' },
+];
+
+const cardData3: CardData[] = [
+  { id: 1, url: 'https://i.imgur.com/dbGXmGo.png' },
+  { id: 2, url: 'https://i.imgur.com/lJwLfuI.jpeg' },
+  { id: 3, url: 'https://i.imgur.com/BZhIxY7.jpeg' },
+  { id: 4, url: 'https://i.imgur.com/yASn6Ab.jpeg' },
+  { id: 5, url: 'https://i.imgur.com/q6be19v.jpeg' },
+  { id: 6, url: 'https://i.imgur.com/90hPNgS.jpeg' },
+];
+
+const cardData4: CardData[] = [
+  { id: 1, url: 'https://i.imgur.com/dbBl69X.png' },
+  { id: 2, url: 'https://i.imgur.com/xIAWaMu.jpeg' },
+  { id: 3, url: 'https://i.imgur.com/uziCi8z.jpeg' },
+  { id: 4, url: 'https://i.imgur.com/AiY47Yn.jpeg' },
+  { id: 5, url: 'https://i.imgur.com/20BkocC.jpeg' },
+  { id: 6, url: 'https://i.imgur.com/O5tOKjR.jpeg' },
+];
+
+const cardData5: CardData[] = [
+  { id: 1, url: 'https://i.imgur.com/74vhsMO.png' },
+  { id: 2, url: 'https://i.imgur.com/McYLFn8.jpeg' },
+  { id: 3, url: 'https://i.imgur.com/ucXabZj.jpeg' },
+  { id: 4, url: 'https://i.imgur.com/uIfVIQT.jpeg' },
+  { id: 5, url: 'https://i.imgur.com/J55a7d7.jpeg' },
+  { id: 6, url: 'https://i.imgur.com/Oo2A7mT.jpeg' },
 ];
 
 export function CampaignKeyVisualSwipeCards() {
-  const [cards, setCards] = useState<CardData[]>(cardData);
+  const [cards1, setCards1] = useState<CardData[]>(cardData1);
+  const [cards2, setCards2] = useState<CardData[]>(cardData2);
+  const [cards3, setCards3] = useState<CardData[]>(cardData3);
+  const [cards4, setCards4] = useState<CardData[]>(cardData4);
+  const [cards5, setCards5] = useState<CardData[]>(cardData5);
 
   const handleSwipe = (direction: string) => {
     // Show accepted/rejected toast message using Toastify
@@ -112,13 +158,13 @@ export function CampaignKeyVisualSwipeCards() {
     <LazyMotion features={domAnimation} key="1">
       <div className="grid h-[500px] w-full place-items-center bg-neutral-100">
         {/* Render cards in the original order */}
-        {cards.slice(0, 2).map((card, index) => (
+        {cards1.map((card, index) => (
           <CardLocal
             key={card.id}
             card={card}
-            setCards={setCards}
+            setCards={setCards1}
             isFront={index === 0}
-            zIndex={cards.length - index}
+            zIndex={cards1.length - index}
             onSwipe={handleSwipe}
           />
         ))}
@@ -131,13 +177,13 @@ export function CampaignKeyVisualSwipeCards() {
     <LazyMotion features={domAnimation} key="2">
       <div className="grid h-[500px] w-full place-items-center bg-neutral-200">
         {/* Render cards differently for demo */}
-        {cards.slice(2, 4).map((card, index) => (
+        {cards2.map((card, index) => (
           <CardLocal
             key={card.id}
             card={card}
-            setCards={setCards}
+            setCards={setCards2}
             isFront={index === 0}
-            zIndex={cards.length - index}
+            zIndex={cards2.length - index}
             onSwipe={handleSwipe}
           />
         ))}
@@ -151,13 +197,13 @@ export function CampaignKeyVisualSwipeCards() {
     <LazyMotion features={domAnimation} key="1">
       <div className="grid h-[500px] w-full place-items-center bg-neutral-100">
         {/* Render cards in the original order */}
-        {cards.slice(4, 6).map((card, index) => (
+        {cards3.map((card, index) => (
           <CardLocal
             key={card.id}
             card={card}
-            setCards={setCards}
+            setCards={setCards3}
             isFront={index === 0}
-            zIndex={cards.length - index}
+            zIndex={cards3.length - index}
             onSwipe={handleSwipe}
           />
         ))}
@@ -171,13 +217,13 @@ export function CampaignKeyVisualSwipeCards() {
     <LazyMotion features={domAnimation} key="1">
       <div className="grid h-[500px] w-full place-items-center bg-neutral-100">
         {/* Render cards in the original order */}
-        {cards.slice(0, 2).map((card, index) => (
+        {cards4.map((card, index) => (
           <CardLocal
             key={card.id}
             card={card}
-            setCards={setCards}
+            setCards={setCards4}
             isFront={index === 0}
-            zIndex={cards.length - index}
+            zIndex={cards4.length - index}
             onSwipe={handleSwipe}
           />
         ))}
@@ -190,13 +236,13 @@ export function CampaignKeyVisualSwipeCards() {
     <LazyMotion features={domAnimation} key="2">
       <div className="grid h-[500px] w-full place-items-center bg-neutral-200">
         {/* Render cards differently for demo */}
-        {cards.slice(2, 4).map((card, index) => (
+        {cards5.map((card, index) => (
           <CardLocal
             key={card.id}
             card={card}
-            setCards={setCards}
+            setCards={setCards5}
             isFront={index === 0}
-            zIndex={cards.length - index}
+            zIndex={cards5.length - index}
             onSwipe={handleSwipe}
           />
         ))}

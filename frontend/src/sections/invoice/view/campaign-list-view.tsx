@@ -59,7 +59,7 @@ import { InvoiceTableFiltersResult } from '../invoice-table-filters-result';
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD = [
-  { id: 'invoiceNumber', label: 'Customer' },
+  { id: 'invoiceNumber', label: 'Campaign' },
   { id: 'createDate', label: 'Start Date' },
   { id: 'dueDate', label: 'End Date' },
   { id: 'price', label: 'Budget Spent' },

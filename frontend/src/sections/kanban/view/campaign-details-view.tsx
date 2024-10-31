@@ -39,6 +39,7 @@ import { DashboardContent } from 'src/layouts/dashboard';
 import { moveTask, moveColumn, useGetBoard } from 'src/actions/campaign';
 
 import { EmptyContent } from 'src/components/empty-content';
+import { _campaign } from 'src/_mock';
 
 import { kanbanClasses } from '../classes';
 import { coordinateGetter } from '../utils';
@@ -361,7 +362,7 @@ export function CampaignDetailsView() {
         justifyContent="space-between"
         sx={{ pr: { sm: 3 }, mb: { xs: 3, md: 5 } }}
       >
-        <Typography variant="h4">CVS Health Campaign October 2024</Typography>
+        <Typography variant="h4">{_campaign.name}</Typography>
 
         <FormControlLabel
           label="Column fixed"

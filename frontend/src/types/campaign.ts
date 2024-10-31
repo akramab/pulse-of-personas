@@ -17,6 +17,7 @@ export type IAd = {
   estimatedImpressions: number;
   estimatedClicks: number;
   kv: string;
+  kvUrl: string;
   primaryText: string;
   headline: string;
   cta: string;
@@ -33,7 +34,7 @@ export type IAdSet = {
   totalEstimatedClicks: number;
   status: string;
   ads: IAd[];
-}
+};
 
 export type ICampaign = {
   name: string;
