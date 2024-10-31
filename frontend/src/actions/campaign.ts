@@ -35,19 +35,19 @@ export function useGetBoard() {
     const tasks = data?.board.tasks ?? {};
     // Mapping each task's ID to a new CVS marketing campaign name
     const newTaskNames = {
-      '1-task-e99f09a7-dd88-49d5-b1c8-1daf80c2d7b2': 'CVS Fever Medicine Campaign',
-      '2-task-e99f09a7-dd88-49d5-b1c8-1daf80c2d7b3': 'CVS Allergy Relief Campaign',
-      '3-task-e99f09a7-dd88-49d5-b1c8-1daf80c2d7b4': 'CVS Cough Suppressant Campaign',
-      '4-task-e99f09a7-dd88-49d5-b1c8-1daf80c2d7b5': 'CVS Immune Booster Launch',
-      '5-task-e99f09a7-dd88-49d5-b1c8-1daf80c2d7b6': 'CVS Health App Promotion',
-      '6-task-e99f09a7-dd88-49d5-b1c8-1daf80c2d7b7': 'CVS Wellness Webinar Organization',
+      '1-task-e99f09a7-dd88-49d5-b1c8-1daf80c2d7b2': 'Halloween Night Relief',
+      '2-task-e99f09a7-dd88-49d5-b1c8-1daf80c2d7b3': 'Election Season Defense',
+      '3-task-e99f09a7-dd88-49d5-b1c8-1daf80c2d7b4': 'Effortless Post-Halloween Cleanse',
+      '4-task-e99f09a7-dd88-49d5-b1c8-1daf80c2d7b5': 'Fall Skin Rescue',
+      '5-task-e99f09a7-dd88-49d5-b1c8-1daf80c2d7b6': 'Family Wellness for Thanksgiving Prep',
+      '6-task-e99f09a7-dd88-49d5-b1c8-1daf80c2d7b7': 'Thanksgiving Relief',
     };
 
     // Iterating over each column's tasks and updating the names
     for (const columnId of Object.keys(tasks)) {
-      tasks[columnId] = tasks[columnId].map((task : IKanbanTask) => ({
+      tasks[columnId] = tasks[columnId].map((task: IKanbanTask) => ({
         ...task,
-        name: newTaskNames[task.id] ?? task.name, // Fallback to the original name if not in the newTaskNames mapping
+        name: (newTaskNames as Record<string, string>)[task.id] ?? task.name,
       }));
     }
 
@@ -62,7 +62,7 @@ export function useGetBoard() {
 
       return {
         ...column,
-        name: nameMapping[column.name] ?? column.name, // Fallback to original name if not in the mapping
+        name: (nameMapping as Record<string, string>)[column.name] ?? column.name, // Fallback to original name if not in the mapping
       };
     });
 

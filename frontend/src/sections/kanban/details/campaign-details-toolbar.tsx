@@ -79,7 +79,7 @@ export function CampaignDetailsToolbar({
           endIcon={<Iconify icon="eva:arrow-ios-downward-fill" width={16} sx={{ ml: -0.5 }} />}
           onClick={popover.onOpen}
         >
-          {displayTextMap[status]}
+          {(displayTextMap as Record<string, string>)[status]}
         </Button>
 
         <Stack direction="row" justifyContent="flex-end" flexGrow={1}>
