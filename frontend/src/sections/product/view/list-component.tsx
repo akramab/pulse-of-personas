@@ -70,42 +70,27 @@ export function ListComponent() {
   const productNames = [
     'CVS Health Mucus 12HR Extended Release and Chest Congestion Expectorant Relief, 20 CT',
     'CVS Health Extra Strength Nasal Strips, Tan, 50 CT',
-    'CVS Health Fast Acting Nasal Spray Phenylephrine 1%, 1 OZ',
     'CVS Beauty Makeup Remover Cleansing Cloth Towelettes',
     'CVS Health Waterproof Hydrocolloid Blemish Patches, 12 CT',
-    'CVS Health Hygenic Cleansing Lotion, 3 OZ',
     'CVS Health Series 100 Upper Arm Blood Pressure Monitor',
-    "CVS Health Women's Multivitamin Tablets",
-    'CVS Health Immune Support Vitamin C Drink Packets, Tangerine',
-    "CVS Health Children's Ibuprofen Pain Reliever & Fever Reducer (NSAID) Oral Suspension",
   ];
 
   const productDescriptions = [
     'Compare to Mucinex active ingredient. Say goodbye to mucus and chest congestion with CVS Health Cough and Mucus Relief Extended-Release Tablets, Guaifenesin 600 mg. Just one dose releases the medicine you need immediately and lasts for up to 12 hours to help loosen mucus and thin bronchial secretions in the airways to make wet coughs more productive. This expectorant relieves chest congestion and mucus for up to 12 hours so you have quick and long-lasting cough relief. Clear bothersome excess mucus and avoid frequent doses of cold medicine. This regular strength chest congestion relief medicine is for adults and children 12 years of age and older...',
     'Relieve congested nasal passages while you sleep with CVS Health Extra Strength Nasal Strips, 50CT. These drug-free strips provide 20% more coverage and open the nasal passages to provide you with easier breathing throughout the night, so you can get restful sleep...',
-    'Compare to the active ingredient in 4-Way Fast Acting Nasal Spray; get fast-acting, non-drowsy temporary relief of nasal congestion, swollen nasal membranes, sinus congestion and sinus pressure with CVS Health Nasal Four Nasal Spray...',
     '2 x 25 ct packs = 50 pre-moistened towelettes. 7.4 x 7.2 inches. Excellent removal & cleansing. Gently removes all types of make-up, including waterproof mascara...',
     'CVS Health Waterproof Hydrocolloid Blemish Patches Protects & Absorbs Fluid and promotes a healing environment. Protects pimples and acne blemishes from external contamination and irritation while absorbing fluid...',
-    'Use CVS Health Hygienic Cleansing Lotion to help soothe and cleanse the perianal and vaginal areas. This hygienic cleanser can help to reduce the discomfort while cleansing after a bowel movement and can cleanse and help soothe external vaginal areas...',
-    'CVS Health Waterproof Hydrocolloid Blemish Patches Protects & Absorbs Fluid and promotes a healing environment. Protects pimples and acne blemishes from external contamination and irritation while absorbing fluid...',
-    "Get the vitamins and minerals you may need to help stay healthy with CVS Health Women's Multivitamin & Multimineral Tablets...",
-    'Compare to Emergen-C, CVS Health tangerine-flavored fizzy drink provides a powerful combination of vitamins, minerals, antioxidants, and other important nutrients...',
-    "To ensure equitable access for all our customers, there is currently a two (2) product limit on all children's pain relief products at all CVS Pharmacy locations and cvs.com...",
+    'Get clarity on your blood pressure levels with the clinically proven accuracy of the CVS Health™ Series 100 Upper Arm Blood Pressure Monitor. With just the touch of a button, this easy-to-use blood pressure monitor delivers clear readings. The attached LCD screen shows your systolic blood pressure, diastolic blood pressure, and pulse all on one display. The numbers are large and easy to read, so this product is perfect for those with mild visual impairments. The SoftFit™ cuff can be adjusted to fit upper arms ranging from 8.7"-16.5" in size. Simply press the button, the cuff inflates and deflates automatically and wait for your results...',
   ];
   const productCoverUrls = [
     'https://i.imgur.com/EXgLJae.jpeg',
     'https://i.imgur.com/lMGHMSa.jpeg',
-    'https://i.imgur.com/A6o6IJq.jpeg',
     'https://i.imgur.com/recWLlg.jpeg',
     'https://i.imgur.com/u23ayq9.jpeg',
-    'https://i.imgur.com/L1GNXls.jpeg',
     'https://i.imgur.com/CeC1sxy.jpeg',
-    'https://i.imgur.com/pE4D3oh.jpeg',
-    'https://i.imgur.com/tbqUvz6.jpeg',
-    'https://i.imgur.com/ZfpBNfe.jpeg',
   ];
 
-  const productPrices = [10.99, 16.49, 5.49, 10.49, 6.99, 19.49, 49.99, 11.29, 12.49, 11.99];
+  const productPrices = [10.99, 16.49, 10.49, 6.99, 49.99];
 
   const confirmRows = useBoolean();
 
@@ -126,7 +111,7 @@ export function ListComponent() {
 
   useEffect(() => {
     if (products.length) {
-      const updatedTableData = products.slice(0, 10).map((item, index) => ({
+      const updatedTableData = products.slice(0, 5).map((item, index) => ({
         ...item,
         name: productNames[index], // Set name from the constant list
         description: productDescriptions[index], // Set description from the constant list

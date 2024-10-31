@@ -95,7 +95,7 @@ export function OverviewAppView() {
         <Grid xs={12} md={6} lg={4}>
           <AppCurrentDownload
             title="Audience Insights"
-            subheader="Active users by device type"
+            subheader="Audience by device type"
             chart={{
               series: [
                 { label: 'Mac', value: 12244 },
@@ -109,7 +109,7 @@ export function OverviewAppView() {
 
         <Grid xs={12} md={6} lg={8}>
           <AppAreaInstalled
-            title="Engagement by region"
+            title="Engagement by state"
             subheader="(+43%) than last year"
             chart={{
               categories: [
@@ -130,9 +130,9 @@ export function OverviewAppView() {
                 {
                   name: '2022',
                   data: [
-                    { name: 'Asia', data: [12, 10, 18, 22, 20, 12, 8, 21, 20, 14, 15, 16] },
-                    { name: 'Europe', data: [12, 10, 18, 22, 20, 12, 8, 21, 20, 14, 15, 16] },
-                    { name: 'Americas', data: [12, 10, 18, 22, 20, 12, 8, 21, 20, 14, 15, 16] },
+                    { name: 'New York', data: [12, 10, 18, 22, 20, 12, 8, 21, 20, 14, 15, 16] },
+                    { name: 'California', data: [12, 10, 18, 22, 20, 12, 8, 21, 20, 14, 15, 16] },
+                    { name: 'Texas', data: [12, 10, 18, 22, 20, 12, 8, 21, 20, 14, 15, 16] },
                   ],
                 },
                 {
@@ -156,35 +156,35 @@ export function OverviewAppView() {
           />
         </Grid>
 
-        <Grid xs={12} md={6} lg={4}>
-          <AppTopInstalledCountries title="Top engaged countries" list={_appInstalled} />
-        </Grid>
-
-        <Grid xs={12} md={6} lg={4}>
-          <AppTopAuthors title="Top campaign creators" list={_appAuthors} />
-        </Grid>
-
-        <Grid xs={12} md={6} lg={4}>
-          <Box sx={{ gap: 3, display: 'flex', flexDirection: 'column' }}>
-            <AppWidget
-              title="Succesful Conversion"
-              total={38566}
-              icon="solar:user-rounded-bold"
-              chart={{ series: 48 }}
-            />
-
-            <AppWidget
-              title="User Sign-Ups"
-              total={55566}
-              icon="fluent:mail-24-filled"
-              chart={{
-                series: 75,
-                colors: [theme.vars.palette.info.light, theme.vars.palette.info.main],
-              }}
-              sx={{ bgcolor: 'info.dark', [`& .${svgColorClasses.root}`]: { color: 'info.light' } }}
-            />
-          </Box>
-        </Grid>
+        {/* <Grid xs={12} md={6} lg={4}> */}
+        {/*   <AppTopInstalledCountries title="Top engaged countries" list={_appInstalled} /> */}
+        {/* </Grid> */}
+        {/**/}
+        {/* <Grid xs={12} md={6} lg={4}> */}
+        {/*   <AppTopAuthors title="Top campaign creators" list={_appAuthors} /> */}
+        {/* </Grid> */}
+        {/**/}
+        {/* <Grid xs={12} md={6} lg={4}> */}
+        {/*   <Box sx={{ gap: 3, display: 'flex', flexDirection: 'column' }}> */}
+        {/*     <AppWidget */}
+        {/*       title="Succesful Conversion" */}
+        {/*       total={38566} */}
+        {/*       icon="solar:user-rounded-bold" */}
+        {/*       chart={{ series: 48 }} */}
+        {/*     /> */}
+        {/**/}
+        {/*     <AppWidget */}
+        {/*       title="User Sign-Ups" */}
+        {/*       total={55566} */}
+        {/*       icon="fluent:mail-24-filled" */}
+        {/*       chart={{ */}
+        {/*         series: 75, */}
+        {/*         colors: [theme.vars.palette.info.light, theme.vars.palette.info.main], */}
+        {/*       }} */}
+        {/*       sx={{ bgcolor: 'info.dark', [`& .${svgColorClasses.root}`]: { color: 'info.light' } }} */}
+        {/*     /> */}
+        {/*   </Box> */}
+        {/* </Grid> */}
       </Grid>
     </DashboardContent>
   );
