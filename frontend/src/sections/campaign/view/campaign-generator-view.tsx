@@ -31,7 +31,12 @@ export function CampaignGeneratorView() {
       <CampaignGeneratorList />
 
       <Box display="flex" justifyContent="right">
-        <Button variant="contained" size="large" href="/dashboard" color="primary">
+        <Button
+          variant="contained"
+          size="large"
+          href="/dashboard/campaign/e99f09a7-dd88-49d5-b1c8-1daf80c2d7b2"
+          color="primary"
+        >
           Save as Draft
         </Button>
       </Box>
