@@ -3,6 +3,27 @@ import 'react-toastify/dist/ReactToastify.css';
 import React, { useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import { m, LazyMotion, domAnimation, useTransform, useMotionValue } from 'framer-motion';
+import type { BoxProps } from '@mui/material/Box';
+import type { CardProps } from '@mui/material/Card';
+import Stack from '@mui/material/Stack';
+
+import Autoplay from 'embla-carousel-autoplay';
+
+import Box from '@mui/material/Box';
+import Link from '@mui/material/Link';
+import Card from '@mui/material/Card';
+import Typography from '@mui/material/Typography';
+
+import { varAlpha } from 'src/theme/styles';
+
+import { Image } from 'src/components/image';
+import {
+  Carousel,
+  useCarousel,
+  CarouselDotButtons,
+  CarouselArrowBasicButtons,
+} from 'src/components/carousel';
+import { Button } from '@mui/material';
 
 // Define a type for card data
 interface CardData {
@@ -11,12 +32,20 @@ interface CardData {
 }
 
 // Define the props for the Card component
-interface CardProps {
+interface CardPropsLocal {
   card: CardData;
   setCards: React.Dispatch<React.SetStateAction<CardData[]>>;
   isFront: boolean;
   zIndex: number;
 }
+type Props = CardProps & {
+  list: {
+    id: string;
+    title: string;
+    coverUrl: string;
+    description: string;
+  }[];
+};
 
 // Card data
 const cardData: CardData[] = [
@@ -71,28 +100,144 @@ export function CampaignKeyVisualSwipeCards() {
       });
     }
   };
+  const carousel = useCarousel({
+    loop: true,
+    dragFree: false,
+    containScroll: 'keepSnaps',
+    dragThreshold: 1000000,
+  });
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  return (
-    <LazyMotion features={domAnimation}>
-      <div className="grid h-[500px] w-full place-items-center bg-neutral-100" style={{}}>
+  const components = [
+    <LazyMotion features={domAnimation} key="1">
+      <div className="grid h-[500px] w-full place-items-center bg-neutral-100">
         {/* Render cards in the original order */}
-        {cards.map((card, index) => (
-          <Card
+        {cards.slice(0, 2).map((card, index) => (
+          <CardLocal
             key={card.id}
             card={card}
             setCards={setCards}
-            isFront={index === 0} // The first item in the array is the "front" card
-            zIndex={cards.length - index} // Higher zIndex for cards at the beginning of the array
-            onSwipe={handleSwipe} // Pass swipe handler to Card
+            isFront={index === 0}
+            zIndex={cards.length - index}
+            onSwipe={handleSwipe}
           />
         ))}
-        <ToastContainer /> {/* Toastify Container for displaying notifications */}
+        <Typography variant="subtitle2">
+          CVS Health Mucus 12HR Extended Release and Chest Congestion Expectorant Relief, 20 CT
+        </Typography>
+        <ToastContainer />
       </div>
-    </LazyMotion>
+    </LazyMotion>,
+    <LazyMotion features={domAnimation} key="2">
+      <div className="grid h-[500px] w-full place-items-center bg-neutral-200">
+        {/* Render cards differently for demo */}
+        {cards.slice(2, 4).map((card, index) => (
+          <CardLocal
+            key={card.id}
+            card={card}
+            setCards={setCards}
+            isFront={index === 0}
+            zIndex={cards.length - index}
+            onSwipe={handleSwipe}
+          />
+        ))}
+        <Typography variant="subtitle2">
+          CVS Health Extra Strength Nasal Strips, Tan, 50 CT
+        </Typography>
+        <ToastContainer />
+      </div>
+    </LazyMotion>,
+
+    <LazyMotion features={domAnimation} key="1">
+      <div className="grid h-[500px] w-full place-items-center bg-neutral-100">
+        {/* Render cards in the original order */}
+        {cards.slice(4, 6).map((card, index) => (
+          <CardLocal
+            key={card.id}
+            card={card}
+            setCards={setCards}
+            isFront={index === 0}
+            zIndex={cards.length - index}
+            onSwipe={handleSwipe}
+          />
+        ))}
+        <Typography variant="subtitle2">
+          CVS Beauty Makeup Remover Cleansing Cloth Towelettes
+        </Typography>
+        <ToastContainer />
+      </div>
+    </LazyMotion>,
+
+    <LazyMotion features={domAnimation} key="1">
+      <div className="grid h-[500px] w-full place-items-center bg-neutral-100">
+        {/* Render cards in the original order */}
+        {cards.slice(0, 2).map((card, index) => (
+          <CardLocal
+            key={card.id}
+            card={card}
+            setCards={setCards}
+            isFront={index === 0}
+            zIndex={cards.length - index}
+            onSwipe={handleSwipe}
+          />
+        ))}
+        <Typography variant="subtitle2">
+          CVS Health Waterproof Hydrocolloid Blemish Patches, 12 CT
+        </Typography>
+        <ToastContainer />
+      </div>
+    </LazyMotion>,
+    <LazyMotion features={domAnimation} key="2">
+      <div className="grid h-[500px] w-full place-items-center bg-neutral-200">
+        {/* Render cards differently for demo */}
+        {cards.slice(2, 4).map((card, index) => (
+          <CardLocal
+            key={card.id}
+            card={card}
+            setCards={setCards}
+            isFront={index === 0}
+            zIndex={cards.length - index}
+            onSwipe={handleSwipe}
+          />
+        ))}
+        <Typography variant="subtitle2">
+          CVS Health Series 100 Upper Arm Blood Pressure Monitor
+        </Typography>
+        <ToastContainer />
+      </div>
+    </LazyMotion>,
+    // Repeat the LazyMotion components as needed up to five times
+  ];
+
+  const handleNext = () => setActiveIndex((prev) => (prev + 1) % components.length);
+  const handlePrevious = () =>
+    setActiveIndex((prev) => (prev - 1 + components.length) % components.length);
+  return (
+    <Card sx={{ bgcolor: 'common.black', position: 'relative' }}>
+      {/* Navigation Buttons */}
+      <Button
+        variant="contained"
+        onClick={handlePrevious}
+        sx={{ position: 'absolute', top: 16, left: 16 }}
+      >
+        Previous
+      </Button>
+
+      <Button
+        variant="contained"
+        onClick={handleNext}
+        sx={{ position: 'absolute', top: 16, right: 16 }}
+      >
+        Next
+      </Button>
+
+      {/* Render only the active LazyMotion component */}
+      {components[activeIndex]}
+    </Card>
   );
 }
 
-const Card: React.FC<CardProps & { onSwipe: (direction: string) => void }> = ({
+const CardLocal: React.FC<CardPropsLocal & { onSwipe: (direction: string) => void }> = ({
   card,
   setCards,
   isFront,
@@ -141,3 +286,54 @@ const Card: React.FC<CardProps & { onSwipe: (direction: string) => void }> = ({
     />
   );
 };
+
+type CarouselItemProps = BoxProps & {
+  item: Props['list'][number];
+};
+
+function CarouselItem({ item, ...other }: CarouselItemProps) {
+  return (
+    <Box sx={{ width: 1, position: 'relative', ...other }}>
+      <Box
+        sx={{
+          p: 3,
+          gap: 1,
+          width: 1,
+          bottom: 0,
+          zIndex: 9,
+          display: 'flex',
+          position: 'absolute',
+          color: 'common.white',
+          flexDirection: 'column',
+        }}
+      >
+        <Typography variant="overline" sx={{ color: 'primary.light' }}>
+          Featured App
+        </Typography>
+
+        <Link color="inherit" underline="none" variant="h5" noWrap>
+          {item.title}
+        </Link>
+
+        <Typography variant="body2" noWrap>
+          {item.description}
+        </Typography>
+      </Box>
+
+      <Image
+        alt={item.title}
+        src={item.coverUrl}
+        slotProps={{
+          overlay: {
+            background: (theme) =>
+              `linear-gradient(to bottom, ${varAlpha(theme.vars.palette.common.blackChannel, 0)} 0%, ${theme.vars.palette.common.black} 75%)`,
+          },
+        }}
+        sx={{
+          width: 1,
+          height: { xs: 288, xl: 320 },
+        }}
+      />
+    </Box>
+  );
+}

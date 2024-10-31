@@ -163,9 +163,13 @@ export function CampaignNewEditForm({ currentProduct }: Props) {
       <Divider />
 
       <Stack spacing={3} sx={{ p: 3 }}>
-        <Field.Text name="name" label="Campaign name" />
+        <Stack spacing={1.5}>
+          <Typography variant="subtitle2">Campaign Name</Typography>
+          <Field.Text name="name" label="Enter Campaign name" />
+        </Stack>
 
         <Stack spacing={1.5}>
+          <Typography variant="subtitle2">Select Products</Typography>
           <Card
             sx={{
               height: { xs: 800 },
@@ -191,7 +195,7 @@ export function CampaignNewEditForm({ currentProduct }: Props) {
     <Card>
       <CardHeader
         title="Properties"
-        subheader="Additional functions and attributes..."
+        subheader="Additional informations related to the campaign"
         sx={{ mb: 3 }}
       />
 
@@ -205,12 +209,45 @@ export function CampaignNewEditForm({ currentProduct }: Props) {
             <Field.DatePicker name="available.endDate" label="End date" />
           </Stack>
         </Stack>
+        <Stack spacing={1.5}>
+          <Typography variant="subtitle2">Target KPI</Typography>
+          <Stack direction={{ xs: 'column', md: 'row' }} spacing={2}>
+            <Field.Text
+              name="impression"
+              label="Impressions"
+              placeholder="0.00"
+              type="number"
+              InputLabelProps={{ shrink: true }}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Box component="span" sx={{ color: 'text.disabled' }} />
+                  </InputAdornment>
+                ),
+              }}
+            />
+            <Field.Text
+              name="totalclick"
+              label="Total Clicks"
+              placeholder="0.00"
+              type="number"
+              InputLabelProps={{ shrink: true }}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Box component="span" sx={{ color: 'text.disabled' }} />
+                  </InputAdornment>
+                ),
+              }}
+            />
+          </Stack>
+        </Stack>
 
         <Stack spacing={1}>
           <Typography variant="subtitle2">Personalization Criteria</Typography>
           <Field.Autocomplete
             name="tags"
-            label="AI Personalization Criteria"
+            label="Campaign Personalization Criteria"
             placeholder="+ Criteria"
             multiple
             freeSolo

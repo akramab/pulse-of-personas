@@ -74,7 +74,7 @@ export function ListComponent() {
     'CVS Beauty Makeup Remover Cleansing Cloth Towelettes',
     'CVS Health Waterproof Hydrocolloid Blemish Patches, 12 CT',
     'CVS Health Hygenic Cleansing Lotion, 3 OZ',
-    'CVS Health Waterproof Hydrocolloid Blemish Patches, 12 CT',
+    'CVS Health Series 100 Upper Arm Blood Pressure Monitor',
     "CVS Health Women's Multivitamin Tablets",
     'CVS Health Immune Support Vitamin C Drink Packets, Tangerine',
     "CVS Health Children's Ibuprofen Pain Reliever & Fever Reducer (NSAID) Oral Suspension",
@@ -203,7 +203,7 @@ export function ListComponent() {
     },
     {
       field: 'createdAt',
-      headerName: 'Description',
+      headerName: 'Details',
       width: 160,
       renderCell: (params) => <RenderCellCreatedAt params={params} />,
     },
