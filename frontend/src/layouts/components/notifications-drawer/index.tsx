@@ -3,7 +3,7 @@
 import type { IconButtonProps } from '@mui/material/IconButton';
 
 import { m } from 'framer-motion';
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
@@ -27,13 +27,14 @@ import { CustomTabs } from 'src/components/custom-tabs';
 import { NotificationItem } from './notification-item';
 
 import type { NotificationItemProps } from './notification-item';
+import { fToNow, today } from 'src/utils/format-time';
 
 // ----------------------------------------------------------------------
 
 const TABS = [
-  { value: 'all', label: 'All', count: 22 },
-  { value: 'unread', label: 'Unread', count: 12 },
-  { value: 'archived', label: 'Archived', count: 10 },
+  { value: 'all', label: 'All', count: 0 },
+  { value: 'unread', label: 'Unread', count: 0 },
+  { value: 'archived', label: 'Archived', count: 0 },
 ];
 
 // ----------------------------------------------------------------------
@@ -46,12 +47,36 @@ export function NotificationsDrawer({ data = [], sx, ...other }: NotificationsDr
   const drawer = useBoolean();
 
   const [currentTab, setCurrentTab] = useState('all');
+  const [notifications, setNotifications] = useState(data);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'x' || event.key === 'X') {
+        setNotifications([{
+          id: '1',
+          type: 'project',
+          title: '<strong>Campaign Update for Flu Break Event<strong>',
+          category: 'Big Event Report',
+          isUnRead: true,
+          avatarUrl: null,
+          createdAt: today(),
+        }])
+        TABS[0].count = 1;
+        TABS[1].count = 1;
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
 
   const handleChangeTab = useCallback((event: React.SyntheticEvent, newValue: string) => {
     setCurrentTab(newValue);
   }, []);
-
-  const [notifications, setNotifications] = useState(data);
 
   const totalUnRead = notifications.filter((item) => item.isUnRead === true).length;
 

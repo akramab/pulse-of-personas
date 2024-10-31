@@ -152,6 +152,7 @@ export const paths = {
         details: `${ROOTS.DASHBOARD}/campaign/${MOCK_ID}`,
         edit: `${ROOTS.DASHBOARD}/campaign/${MOCK_ID}/edit`,
       },
+      suggestion: `${ROOTS.DASHBOARD}/campaign/suggestion`,
     },
     adset: {
       root: `${ROOTS.DASHBOARD}/campaign/adset`,

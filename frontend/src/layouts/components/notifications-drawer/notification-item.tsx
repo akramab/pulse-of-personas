@@ -13,6 +13,7 @@ import { CONFIG } from 'src/config-global';
 
 import { Label } from 'src/components/label';
 import { FileThumbnail } from 'src/components/file-thumbnail';
+import { paths } from 'src/routes/paths';
 
 // ----------------------------------------------------------------------
 
@@ -112,12 +113,12 @@ export function NotificationItem({ notification }: { notification: NotificationI
         }}
       >
         {reader(
-          `<p><strong>@Jaydon Frankie</strong> feedback by asking questions or just leave a note of appreciation.</p>`
+          `<p>Our system got report for flu outbreak, we suggest to adjust <strong>2025 Health Awareness Campaign</strong> accordingly.</p>`
         )}
       </Box>
 
-      <Button size="small" variant="contained">
-        Reply
+      <Button size="small" variant="contained" href={paths.dashboard.campaign.suggestion}>
+        Show Details
       </Button>
     </Stack>
   );
