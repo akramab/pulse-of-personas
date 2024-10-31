@@ -4,12 +4,12 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Table from '@mui/material/Table';
 import Stack from '@mui/material/Stack';
-import { styled } from '@mui/material/styles';
+
 import TableRow from '@mui/material/TableRow';
 import TableHead from '@mui/material/TableHead';
 import TableBody from '@mui/material/TableBody';
 import Typography from '@mui/material/Typography';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import TableCell from '@mui/material/TableCell';
 
 import { fDate } from 'src/utils/format-time';
 import { fNumber, fCurrency } from 'src/utils/format-number';
@@ -33,21 +33,21 @@ export function AdSetDetails({ adset }: Props) {
       <Table sx={{ minWidth: 960 }}>
         <TableHead>
           <TableRow>
-            <TableCell width={40}>#</TableCell>
+            <TableCell width={40} align="center">#</TableCell>
 
-            <TableCell>Channel</TableCell>
+            <TableCell align="center">Channel</TableCell>
 
-            <TableCell>Budget</TableCell>
+            <TableCell align="center">Budget</TableCell>
 
-            <TableCell align="right">Estmd. Impressions</TableCell>
+            <TableCell align="center">Estimated Impressions</TableCell>
 
-            <TableCell align="right">Estmd. Clicks</TableCell>
+            <TableCell align="center">Estimated Clicks</TableCell>
 
-            <TableCell>KV</TableCell>
+            <TableCell align="center">KV</TableCell>
 
-            <TableCell>Headline</TableCell>
+            <TableCell align="center">Headline</TableCell>
 
-            <TableCell>CTA</TableCell>
+            <TableCell align="center">CTA</TableCell>
           </TableRow>
         </TableHead>
 
@@ -136,9 +136,9 @@ export function AdSetDetails({ adset }: Props) {
           <Stack sx={{ typography: 'body2' }}>
             Budget: {fNumber(adset?.totalBudget)}
             <br />
-            Estmd. Impressions: {fNumber(adset?.totalEstimatedImpressions)}
+            Estimated Impressions: {fNumber(adset?.totalEstimatedImpressions)}
             <br />
-            Estmd. Clicks: {fNumber(adset?.totalEstimatedClicks)}
+            Estimated Clicks: {fNumber(adset?.totalEstimatedClicks)}
             <br />
           </Stack>
         </Box>

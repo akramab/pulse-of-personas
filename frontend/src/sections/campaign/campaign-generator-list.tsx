@@ -7,12 +7,9 @@ import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import Card from '@mui/material/Card';
 import Table from '@mui/material/Table';
-import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import TableBody from '@mui/material/TableBody';
 import { useTheme } from '@mui/material/styles';
-import IconButton from '@mui/material/IconButton';
 
 import { paths } from 'src/routes/paths';
 import { useRouter } from 'src/routes/hooks';
@@ -28,7 +25,6 @@ import { _campaign } from 'src/_mock';
 
 import { Label } from 'src/components/label';
 import { toast } from 'src/components/snackbar';
-import { Iconify } from 'src/components/iconify';
 import { Scrollbar } from 'src/components/scrollbar';
 import { ConfirmDialog } from 'src/components/custom-dialog';
 import { CustomBreadcrumbs } from 'src/components/custom-breadcrumbs';
@@ -40,7 +36,6 @@ import {
   getComparator,
   TableEmptyRows,
   TableHeadCustom,
-  TableSelectedAction,
   TablePaginationCustom,
 } from 'src/components/table';
 
@@ -56,8 +51,8 @@ const TABLE_HEAD = [
   { id: 'startDate', label: 'Start Date' },
   { id: 'endDate', label: 'End Date' },
   { id: 'totalBudget', label: 'Budget Spent' },
-  { id: 'totalEstimatedImpressions', label: 'Estmd. Impression' },
-  { id: 'totalEstimatedClicks', label: 'Estmd. Clicks' },
+  { id: 'totalEstimatedImpressions', label: 'Estimated Impression' },
+  { id: 'totalEstimatedClicks', label: 'Estimated Clicks' },
   { id: 'status', label: 'Status', align: 'center' },
   { id: '' },
 ];
@@ -128,6 +123,12 @@ export function CampaignGeneratorList() {
       label: 'Upcoming',
       color: 'warning',
       count: getAdSetLength('upcoming'),
+    },
+    {
+      value: 'rejected',
+      label: 'Rejected',
+      color: 'error',
+      count: getAdSetLength('rejected'),
     },
     {
       value: 'done',
@@ -225,6 +226,7 @@ export function CampaignGeneratorList() {
           </Tabs>
 
           <CampaignGeneratorToolbar
+            campaign={pageData}
             filters={filters}
             dateError={dateError}
             onResetPage={table.onResetPage}
@@ -240,47 +242,8 @@ export function CampaignGeneratorList() {
           )}
 
           <Box sx={{ position: 'relative' }}>
-            <TableSelectedAction
-              dense={table.dense}
-              numSelected={table.selected.length}
-              rowCount={dataFiltered.length}
-              onSelectAllRows={(checked) => {
-                table.onSelectAllRows(
-                  checked,
-                  dataFiltered.map((row) => row.id)
-                );
-              }}
-              action={
-                <Stack direction="row">
-                  <Tooltip title="Sent">
-                    <IconButton color="primary">
-                      <Iconify icon="iconamoon:send-fill" />
-                    </IconButton>
-                  </Tooltip>
-
-                  <Tooltip title="Download">
-                    <IconButton color="primary">
-                      <Iconify icon="eva:download-outline" />
-                    </IconButton>
-                  </Tooltip>
-
-                  <Tooltip title="Print">
-                    <IconButton color="primary">
-                      <Iconify icon="solar:printer-minimalistic-bold" />
-                    </IconButton>
-                  </Tooltip>
-
-                  <Tooltip title="Delete">
-                    <IconButton color="primary" onClick={confirm.onTrue}>
-                      <Iconify icon="solar:trash-bin-trash-bold" />
-                    </IconButton>
-                  </Tooltip>
-                </Stack>
-              }
-            />
-
             <Scrollbar sx={{ minHeight: 444 }}>
-              <Table size={table.dense ? 'small' : 'medium'} sx={{ minWidth: 800 }}>
+              <Table size={'medium'} sx={{ minWidth: 800 }}>
                 <TableHeadCustom
                   order={table.order}
                   orderBy={table.orderBy}
@@ -288,12 +251,6 @@ export function CampaignGeneratorList() {
                   rowCount={dataFiltered.length}
                   numSelected={table.selected.length}
                   onSort={table.onSort}
-                  onSelectAllRows={(checked) =>
-                    table.onSelectAllRows(
-                      checked,
-                      dataFiltered.map((row) => row.id)
-                    )
-                  }
                 />
 
                 <TableBody>
@@ -315,7 +272,7 @@ export function CampaignGeneratorList() {
                     ))}
 
                   <TableEmptyRows
-                    height={table.dense ? 56 : 56 + 20}
+                    height={76}
                     emptyRows={emptyRows(table.page, table.rowsPerPage, dataFiltered.length)}
                   />
 
@@ -327,11 +284,9 @@ export function CampaignGeneratorList() {
 
           <TablePaginationCustom
             page={table.page}
-            dense={table.dense}
             count={dataFiltered.length}
             rowsPerPage={table.rowsPerPage}
             onPageChange={table.onChangePage}
-            onChangeDense={table.onChangeDense}
             onRowsPerPageChange={table.onChangeRowsPerPage}
           />
         </Card>

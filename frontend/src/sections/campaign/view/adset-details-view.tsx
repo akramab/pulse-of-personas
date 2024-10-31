@@ -32,14 +32,25 @@ export function AdSetDetailsView({ adset }: Props) {
 
       <AdSetDetails adset={adset} />
 
-      {adset?.status !== 'approved' && (
+      {adset?.status !== 'approved' && adset?.status !== 'rejected' && (
         <Box gap={1} display="flex" justifyContent="right" sx={{ my: 5 }}>
+          <Button
+            variant="contained"
+            size="large"
+            color="error"
+            onClick={() => {
+              _campaign.adSets[parseInt(adset?.id || '1', 10) - 1].status = 'rejected';
+              window.history.back();
+            }}
+          >
+            Reject
+          </Button>
           <Button
             variant="contained"
             size="large"
             color="primary"
             onClick={() => {
-              _campaign.adSets[parseInt(adset?.id || '1', 10)-1].status = "upcoming";
+              _campaign.adSets[parseInt(adset?.id || '1', 10) - 1].status = 'upcoming';
               window.history.back();
             }}
           >

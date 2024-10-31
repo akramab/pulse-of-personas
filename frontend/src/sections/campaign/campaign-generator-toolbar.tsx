@@ -1,37 +1,32 @@
 import type { IDatePickerControl } from 'src/types/common';
-import type { IInvoiceTableFilters } from 'src/types/invoice';
-import type { SelectChangeEvent } from '@mui/material/Select';
+import type { IAdSetTableFilters, ICampaign } from 'src/types/campaign';
 import type { UseSetStateReturn } from 'src/hooks/use-set-state';
 
 import { useCallback } from 'react';
 
 import Stack from '@mui/material/Stack';
-import Select from '@mui/material/Select';
-import MenuList from '@mui/material/MenuList';
-import MenuItem from '@mui/material/MenuItem';
-import Checkbox from '@mui/material/Checkbox';
 import TextField from '@mui/material/TextField';
-import InputLabel from '@mui/material/InputLabel';
 import IconButton from '@mui/material/IconButton';
-import FormControl from '@mui/material/FormControl';
-import OutlinedInput from '@mui/material/OutlinedInput';
 import InputAdornment from '@mui/material/InputAdornment';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { formHelperTextClasses } from '@mui/material/FormHelperText';
 
 import { Iconify } from 'src/components/iconify';
-import { usePopover, CustomPopover } from 'src/components/custom-popover';
-import { IAdSetTableFilters } from 'src/types/campaign';
+import { usePopover } from 'src/components/custom-popover';
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import { CircularProgress, NoSsr, Tooltip } from '@mui/material';
+import { CampaignPDF } from './campaign-pdf';
 
 // ----------------------------------------------------------------------
 
 type Props = {
+  campaign?: ICampaign;
   dateError: boolean;
   onResetPage: () => void;
   filters: UseSetStateReturn<IAdSetTableFilters>;
 };
 
-export function CampaignGeneratorToolbar({ filters, dateError, onResetPage }: Props) {
+export function CampaignGeneratorToolbar({ campaign, filters, dateError, onResetPage }: Props) {
   const popover = usePopover();
 
   const handleFilterName = useCallback(
@@ -56,6 +51,30 @@ export function CampaignGeneratorToolbar({ filters, dateError, onResetPage }: Pr
       filters.setState({ endDate: newValue });
     },
     [filters, onResetPage]
+  );
+
+  const renderDownload = (
+    <NoSsr>
+      <PDFDownloadLink
+        document={
+          campaign ? <CampaignPDF campaign={campaign} /> : <span />
+        }
+        fileName={campaign?.name}
+        style={{ textDecoration: 'none' }}
+      >
+        {({ loading }) => (
+          <Tooltip title="Download">
+            <IconButton>
+              {loading ? (
+                <CircularProgress size={24} color="inherit" />
+              ) : (
+                <Iconify icon="eva:cloud-download-fill" />
+              )}
+            </IconButton>
+          </Tooltip>
+        )}
+      </PDFDownloadLink>
+    </NoSsr>
   );
 
   return (
@@ -99,7 +118,7 @@ export function CampaignGeneratorToolbar({ filters, dateError, onResetPage }: Pr
             fullWidth
             value={filters.state.name}
             onChange={handleFilterName}
-            placeholder="Search campaign..."
+            placeholder="Search ad set..."
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -109,49 +128,9 @@ export function CampaignGeneratorToolbar({ filters, dateError, onResetPage }: Pr
             }}
           />
 
-          <IconButton onClick={popover.onOpen}>
-            <Iconify icon="eva:more-vertical-fill" />
-          </IconButton>
+          {renderDownload}
         </Stack>
       </Stack>
-
-      <CustomPopover
-        open={popover.open}
-        anchorEl={popover.anchorEl}
-        onClose={popover.onClose}
-        slotProps={{ arrow: { placement: 'right-top' } }}
-      >
-        <MenuList>
-          <MenuList>
-            <MenuItem
-              onClick={() => {
-                popover.onClose();
-              }}
-            >
-              <Iconify icon="solar:printer-minimalistic-bold" />
-              Print
-            </MenuItem>
-
-            <MenuItem
-              onClick={() => {
-                popover.onClose();
-              }}
-            >
-              <Iconify icon="solar:import-bold" />
-              Import
-            </MenuItem>
-
-            <MenuItem
-              onClick={() => {
-                popover.onClose();
-              }}
-            >
-              <Iconify icon="solar:export-bold" />
-              Export
-            </MenuItem>
-          </MenuList>
-        </MenuList>
-      </CustomPopover>
     </>
   );
 }

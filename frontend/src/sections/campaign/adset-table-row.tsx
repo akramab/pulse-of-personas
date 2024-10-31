@@ -5,7 +5,6 @@ import Divider from '@mui/material/Divider';
 import MenuList from '@mui/material/MenuList';
 import MenuItem from '@mui/material/MenuItem';
 import TableRow from '@mui/material/TableRow';
-import Checkbox from '@mui/material/Checkbox';
 import TableCell from '@mui/material/TableCell';
 import IconButton from '@mui/material/IconButton';
 import ListItemText from '@mui/material/ListItemText';
@@ -46,14 +45,6 @@ export function AdSetTableRow({
   return (
     <>
       <TableRow hover selected={selected}>
-        <TableCell padding="checkbox">
-          <Checkbox
-            checked={selected}
-            onClick={onSelectRow}
-            inputProps={{ id: `row-checkbox-${row.id}`, 'aria-label': `Row checkbox` }}
-          />
-        </TableCell>
-
         <TableCell>
           <ListItemText
             primary={row.name}
@@ -87,7 +78,7 @@ export function AdSetTableRow({
             color={
               (row.status === 'running' && 'success') ||
               (row.status === 'upcoming' && 'warning') ||
-              (row.status === 'waiting approval' && 'error') ||
+              ((row.status === 'waiting approval' || row.status === 'rejected') && 'error') ||
               'default'
             }
           >
@@ -98,7 +89,9 @@ export function AdSetTableRow({
                 ? 'Upcoming'
                 : row.status === 'waiting approval'
                   ? 'Waiting Approval'
-                  : 'Done'}
+                  : row.status === 'rejected'
+                    ? 'Rejected'
+                    : 'Done'}
           </Label>
         </TableCell>
 
