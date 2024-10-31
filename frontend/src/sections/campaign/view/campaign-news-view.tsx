@@ -1,9 +1,8 @@
 'use client';
 
-
 import { DashboardContent } from 'src/layouts/dashboard';
 
-import { Card, CardHeader, Stack } from '@mui/material';
+import { Button, Card, CardHeader, Stack } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
@@ -14,11 +13,12 @@ export function CampaignNewsView() {
         <CardHeader title="Campaign Update for Flu Outbreak Event" sx={{ mb: 3 }} />
         <Stack sx={{ typography: 'body2' }}>
           To address the recent flu outbreak and effectively reach our audience during this time, we
-          propose an update to our 2025 Health Awareness Campaign. Below are the suggested
-          changes:
+          propose an update to our 2025 Health Awareness Campaign. Below are the suggested changes:
           <br />
           <br />
-          <h1>New Ad Set: <strong>Flu Break Awareness</strong></h1>
+          <h1>
+            New Ad Set: <strong>Flu Break Awareness</strong>
+          </h1>
           <br />
           <ul>
             <li>
@@ -50,7 +50,11 @@ export function CampaignNewsView() {
           </ul>
           <br />
           <br />
-          <br />
+      <Button variant="contained" size="large" color="primary">
+        Check Campaign
+      </Button>
+      <br />
+      <br />
         </Stack>
       </Card>
     </DashboardContent>
