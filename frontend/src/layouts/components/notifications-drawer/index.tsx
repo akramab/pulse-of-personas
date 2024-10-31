@@ -24,10 +24,10 @@ import { varHover } from 'src/components/animate';
 import { Scrollbar } from 'src/components/scrollbar';
 import { CustomTabs } from 'src/components/custom-tabs';
 
+import { fToNow, today } from 'src/utils/format-time';
+import type { NotificationItemProps } from './notification-item';
 import { NotificationItem } from './notification-item';
 
-import type { NotificationItemProps } from './notification-item';
-import { fToNow, today } from 'src/utils/format-time';
 
 // ----------------------------------------------------------------------
 

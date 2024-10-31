@@ -147,7 +147,7 @@ export function CampaignPDF({ campaign }: Props) {
               <Text style={styles.subtitle2}>Budget</Text>
             </View>
             <View style={styles.cell_4}>
-              <Text style={styles.subtitle2}>Estimated {<br></br>} Impressions</Text>
+              <Text style={styles.subtitle2}>Estimated Impressions</Text>
             </View>
             <View style={[styles.cell_5]}>
               <Text style={styles.subtitle2}>Estimated Clicks</Text>

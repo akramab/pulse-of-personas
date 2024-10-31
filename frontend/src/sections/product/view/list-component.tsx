@@ -135,7 +135,7 @@ export function ListComponent() {
       }));
       setTableData(updatedTableData);
     }
-  }, [products]);
+  }, [products, productCoverUrls, productDescriptions, productNames, productPrices]);
 
   const canReset = filters.state.publish.length > 0 || filters.state.stock.length > 0;
 

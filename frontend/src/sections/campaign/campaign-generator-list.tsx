@@ -243,7 +243,7 @@ export function CampaignGeneratorList() {
 
           <Box sx={{ position: 'relative' }}>
             <Scrollbar sx={{ minHeight: 444 }}>
-              <Table size={'medium'} sx={{ minWidth: 800 }}>
+              <Table size='medium' sx={{ minWidth: 800 }}>
                 <TableHeadCustom
                   order={table.order}
                   orderBy={table.orderBy}

@@ -44,8 +44,8 @@ export function useGetBoard() {
     };
 
     // Iterating over each column's tasks and updating the names
-    for (const columnId in tasks) {
-      tasks[columnId] = tasks[columnId].map((task) => ({
+    for (const columnId of Object.keys(tasks)) {
+      tasks[columnId] = tasks[columnId].map((task : IKanbanTask) => ({
         ...task,
         name: newTaskNames[task.id] ?? task.name, // Fallback to the original name if not in the newTaskNames mapping
       }));
