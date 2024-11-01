@@ -66,12 +66,6 @@ export const NewProductSchema = zod.object({
   taxes: zod.number(),
   saleLabel: zod.object({ enabled: zod.boolean(), content: zod.string() }),
   newLabel: zod.object({ enabled: zod.boolean(), content: zod.string() }),
-  impression: zod.number(),
-  totalclick: zod.number(),
-  available: zod.object({
-    startDate: zod.date(),
-    endDate: zod.date(),
-  }),
 });
 
 // ----------------------------------------------------------------------
