@@ -58,6 +58,12 @@ export const NewProductSchema = zod.object({
   taxes: zod.number(),
   saleLabel: zod.object({ enabled: zod.boolean(), content: zod.string() }),
   newLabel: zod.object({ enabled: zod.boolean(), content: zod.string() }),
+  impression: zod.number(),
+  totalclick: zod.number(),
+  available: zod.object({
+    startDate: zod.date(),
+    endDate: zod.date(),
+  }),
 });
 
 // ----------------------------------------------------------------------
@@ -171,7 +177,7 @@ export function CampaignNewEditForm({ currentProduct }: Props) {
 
   const handleRemoveFile = useCallback(
     (inputFile: File | string) => {
-      const filtered = values.images && values.images?.filter((file) => file !== inputFile);
+      const filtered = values.images && values.images?.filter((file: any) => file !== inputFile);
       setValue('images', filtered);
     },
     [setValue, values.images]
