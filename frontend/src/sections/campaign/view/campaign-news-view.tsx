@@ -13,7 +13,8 @@ export function CampaignNewsView() {
         <CardHeader title="Campaign Update for Flu Outbreak Event" sx={{ mb: 3 }} />
         <Stack sx={{ typography: 'body2' }}>
           To address the recent flu outbreak and effectively reach our audience during this time, we
-          propose an update to our 2025 Health Awareness Campaign. Below are the suggested changes:
+          propose an update to our CVS 2024 Fall and Winter Wellness Campaign - New York. Below are
+          the suggested changes:
           <br />
           <br />
           <h1>
@@ -26,7 +27,7 @@ export function CampaignNewsView() {
               immune-support products during flu season.
             </li>
             <li>
-              <strong>Campaign:</strong> 2025 Health Awareness Campaign
+              <strong>Campaign:</strong> CVS 2024 Fall and Winter Wellness Campaign - New York
             </li>
             <li>
               <strong>Target Segment:</strong> General population, focusing on families, elderly
@@ -50,11 +51,11 @@ export function CampaignNewsView() {
           </ul>
           <br />
           <br />
-      <Button variant="contained" size="large" color="primary">
-        Check Campaign
-      </Button>
-      <br />
-      <br />
+          <Button variant="contained" size="large" color="primary" href="/dashboard">
+            Check Campaign
+          </Button>
+          <br />
+          <br />
         </Stack>
       </Card>
     </DashboardContent>

@@ -27,7 +27,7 @@ import { CustomTabs } from 'src/components/custom-tabs';
 import { fToNow, today } from 'src/utils/format-time';
 import type { NotificationItemProps } from './notification-item';
 import { NotificationItem } from './notification-item';
-
+import { _mock } from 'src/_mock';
 
 // ----------------------------------------------------------------------
 
@@ -52,15 +52,17 @@ export function NotificationsDrawer({ data = [], sx, ...other }: NotificationsDr
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'x' || event.key === 'X') {
-        setNotifications([{
-          id: '1',
-          type: 'project',
-          title: '<strong>Campaign Update for Flu Break Event<strong>',
-          category: 'Big Event Report',
-          isUnRead: true,
-          avatarUrl: null,
-          createdAt: today(),
-        }])
+        setNotifications([
+          {
+            id: '1',
+            type: 'project',
+            title: '<strong>Campaign Update for Flu Break Event<strong>',
+            category: 'Big Event Report',
+            isUnRead: true,
+            avatarUrl: _mock.image.avatar(0),
+            createdAt: today(),
+          },
+        ]);
         TABS[0].count = 1;
         TABS[1].count = 1;
       }
@@ -72,7 +74,6 @@ export function NotificationsDrawer({ data = [], sx, ...other }: NotificationsDr
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, []);
-
 
   const handleChangeTab = useCallback((event: React.SyntheticEvent, newValue: string) => {
     setCurrentTab(newValue);

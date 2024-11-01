@@ -113,7 +113,7 @@ export function NotificationItem({ notification }: { notification: NotificationI
         }}
       >
         {reader(
-          `<p>Our system got report for flu outbreak, we suggest to adjust <strong>2025 Health Awareness Campaign</strong> accordingly.</p>`
+          `<p>Our system got report for flu outbreak, we suggest to adjust <strong>CVS 2024 Fall and Winter Wellness Campaign - New York</strong> accordingly.</p>`
         )}
       </Box>
 
