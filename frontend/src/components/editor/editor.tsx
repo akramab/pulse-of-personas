@@ -36,7 +36,7 @@ export const Editor = forwardRef<HTMLDivElement, EditorProps>(
       editable = true,
       fullItem = false,
       value: content = '',
-      placeholder = 'Write something awesome...',
+      placeholder = 'Feel free to write any additional context that you want!',
       ...other
     },
     ref
