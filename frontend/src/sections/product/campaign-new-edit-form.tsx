@@ -124,6 +124,39 @@ export function CampaignNewEditForm({ currentProduct }: Props) {
     }
   }, [currentProduct?.taxes, includeTaxes, setValue]);
 
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === '\\') {
+        // Set the default values for the fields when '\' is pressed
+        setValue('name', 'CVS 2024 Fall and Winter Wellness Campaign - New York');
+        setValue(
+          'description',
+          'Give me the best estimate to optimize my campaign, especially considering that there are several big events happening around the campaign time (election, seasonal events)'
+        );
+        setValue('price', 100000); // Example value for Budget
+        setValue('impression', 4000000); // Example for Impressions
+        setValue('totalclick', 400000); // Example for Total Clicks
+        setValue('tags', [
+          'Brainwave Activity',
+          'Heart Rate',
+          'Emotion Detection',
+          'Political Climate',
+          'Weather Conditions',
+          'Local Events',
+        ]);
+        setValue('available.startDate', new Date('2024-10-01'));
+        setValue('available.endDate', new Date('2024-11-30'));
+        // Add more fields as needed
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [setValue]); // Ensure setValue is in the dependency array
+
   const onSubmit = handleSubmit(async (data) => {
     try {
       await new Promise((resolve) => setTimeout(resolve, 500));
