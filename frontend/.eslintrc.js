@@ -38,6 +38,7 @@ module.exports = {
     '@typescript-eslint/consistent-type-exports': 'off',
     '@typescript-eslint/consistent-type-imports': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
+    '@typescript-eslint/no-unsafe-assignment': 'off',
     'react/no-children-prop': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/no-array-index-key': 'off',
