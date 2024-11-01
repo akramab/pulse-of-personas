@@ -90,7 +90,7 @@ export function AdSetTableRow({
                 : row.status === 'waiting approval'
                   ? 'Waiting Approval'
                   : row.status === 'rejected'
-                    ? 'Rejected'
+                    ? 'Awaiting Update'
                     : 'Done'}
           </Label>
         </TableCell>

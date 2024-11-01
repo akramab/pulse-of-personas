@@ -126,7 +126,7 @@ export function CampaignGeneratorList() {
     },
     {
       value: 'rejected',
-      label: 'Rejected',
+      label: 'Awaiting Update',
       color: 'error',
       count: getAdSetLength('rejected'),
     },
@@ -243,7 +243,7 @@ export function CampaignGeneratorList() {
 
           <Box sx={{ position: 'relative' }}>
             <Scrollbar sx={{ minHeight: 444 }}>
-              <Table size='medium' sx={{ minWidth: 800 }}>
+              <Table size="medium" sx={{ minWidth: 800 }}>
                 <TableHeadCustom
                   order={table.order}
                   orderBy={table.orderBy}
@@ -342,8 +342,7 @@ function applyFilter({ inputData, comparator, filters, dateError }: ApplyFilterP
 
   if (name) {
     inputData = inputData.filter(
-      (adset) =>
-        adset.name.toLowerCase().indexOf(name.toLowerCase()) !== -1
+      (adset) => adset.name.toLowerCase().indexOf(name.toLowerCase()) !== -1
     );
   }
 
