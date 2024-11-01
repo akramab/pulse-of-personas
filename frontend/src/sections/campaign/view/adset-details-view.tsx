@@ -43,7 +43,7 @@ export function AdSetDetailsView({ adset }: Props) {
               window.history.back();
             }}
           >
-            Reject
+            Re-Generate
           </Button>
           <Button
             variant="contained"
