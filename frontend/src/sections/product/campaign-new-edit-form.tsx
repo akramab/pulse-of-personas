@@ -128,13 +128,19 @@ export function CampaignNewEditForm({ currentProduct }: Props) {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === '\\') {
         // Set the default values for the fields when '\' is pressed
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         setValue('name', 'CVS 2024 Fall and Winter Wellness Campaign - New York');
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         setValue(
           'description',
           'Give me the best estimate to optimize my campaign, especially considering that there are several big events happening around the campaign time (election, seasonal events)'
         );
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         setValue('price', 100000); // Example value for Budget
+
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         setValue('impression', 4000000); // Example for Impressions
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         setValue('totalclick', 400000); // Example for Total Clicks
         setValue('tags', [
           'Brainwave Activity',
@@ -144,7 +150,10 @@ export function CampaignNewEditForm({ currentProduct }: Props) {
           'Weather Conditions',
           'Local Events',
         ]);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         setValue('available.startDate', new Date('2024-10-01'));
+
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         setValue('available.endDate', new Date('2024-11-30'));
         // Add more fields as needed
       }
