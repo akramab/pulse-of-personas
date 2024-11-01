@@ -20,6 +20,7 @@ import { Image } from 'src/components/image';
 import { Scrollbar } from 'src/components/scrollbar';
 
 import { AdSetToolbar } from './adset-toolbar';
+import { TextField } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
@@ -146,6 +147,9 @@ export function AdSetDetails({ adset }: Props) {
         </Box>
 
         {renderList}
+
+        <Typography variant="subtitle2">Feedback</Typography>
+          <TextField sx={{ maxHeight: 200, paddingBottom: 5}} fullWidth/>
       </Card>
     </>
   );

@@ -48,6 +48,13 @@ export function AdSetDetailsView({ adset }: Props) {
           <Button
             variant="contained"
             size="large"
+            color="warning"
+          >
+            Edit
+          </Button>
+          <Button
+            variant="contained"
+            size="large"
             color="primary"
             onClick={() => {
               _campaign.adSets[parseInt(adset?.id || '1', 10) - 1].status = 'upcoming';
