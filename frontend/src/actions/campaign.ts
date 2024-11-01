@@ -33,6 +33,7 @@ export function useGetBoard() {
 
   const memoizedValue = useMemo(() => {
     const tasks = data?.board.tasks ?? {};
+
     // Mapping each task's ID to a new CVS marketing campaign name
     const newTaskNames = {
       '1-task-e99f09a7-dd88-49d5-b1c8-1daf80c2d7b2': 'Halloween Night Relief',
@@ -54,9 +55,9 @@ export function useGetBoard() {
     const columnFromAPI = data?.board.columns ?? [];
     const columns = columnFromAPI.map((column) => {
       const nameMapping = {
-        'To do': 'Upcoming',
+        'To do': 'On Track',
         'In progress': 'Underachieving',
-        'Ready to test': 'On Track',
+        'Ready to test': 'Upcoming',
         Done: 'Completed',
       };
 

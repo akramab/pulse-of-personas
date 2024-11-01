@@ -49,9 +49,9 @@ export function CampaignDetailsToolbar({
     [popover]
   );
   const displayTextMap = {
-    'To do': 'Upcoming',
+    'To do': 'On Track',
     'In progress': 'Underachieving',
-    'Ready to test': 'On Track',
+    'Ready to test': 'Upcoming',
     Done: 'Completed',
   };
 
@@ -110,9 +110,9 @@ export function CampaignDetailsToolbar({
         <MenuList>
           {['To do', 'In progress', 'Ready to test', 'Done'].map((option) => {
             const displayText = {
-              'To do': 'Upcoming',
+              'To do': 'On Track',
               'In progress': 'Underachieving',
-              'Ready to test': 'On Track',
+              'Ready to test': 'Upcoming',
               Done: 'Completed',
             }[option];
 

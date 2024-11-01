@@ -2,6 +2,7 @@ import type { IKanbanTask } from 'src/types/kanban';
 import type { Transform } from '@dnd-kit/utilities';
 import type { StackProps } from '@mui/material/Stack';
 import type { DraggableSyntheticListeners } from '@dnd-kit/core';
+import { fNumber, fPercent } from 'src/utils/format-number';
 
 import { memo, useEffect, forwardRef } from 'react';
 
@@ -9,7 +10,7 @@ import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Avatar from '@mui/material/Avatar';
 import ListItem from '@mui/material/ListItem';
-import { styled } from '@mui/material/styles';
+import { useTheme, styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import AvatarGroup, { avatarGroupClasses } from '@mui/material/AvatarGroup';
 
@@ -119,7 +120,45 @@ const ItemBase = forwardRef<HTMLLIElement, ItemBaseProps>(
         }}
       />
     );
+    if (task.name === 'Halloween Night Relief') {
+      task.attachments = [
+        'https://i.imgur.com/EDGSWBm.png',
+        'https://i.imgur.com/i4edUYl.jpeg',
+        'https://i.imgur.com/Kk9THZZ.jpeg',
+      ];
+    }
 
+    if (task.name === 'Effortless Post-Halloween Cleanse') {
+      task.attachments = [
+        'https://i.imgur.com/dbGXmGo.png',
+        'https://i.imgur.com/lJwLfuI.jpeg',
+        'https://i.imgur.com/BZhIxY7.jpeg',
+      ];
+    }
+
+    if (task.name === 'Fall Skin Rescue') {
+      task.attachments = [
+        'https://i.imgur.com/dbBl69X.png',
+        'https://i.imgur.com/xIAWaMu.jpeg',
+        'https://i.imgur.com/uziCi8z.jpeg',
+      ];
+    }
+
+    if (task.name === 'Family Wellness for Thanksgiving Prep') {
+      task.attachments = [
+        'https://i.imgur.com/74vhsMO.png',
+        'https://i.imgur.com/McYLFn8.jpeg',
+        'https://i.imgur.com/ucXabZj.jpeg',
+      ];
+    }
+
+    if (task.name === 'Election Season Defense') {
+      task.attachments = [
+        'https://i.imgur.com/MH3oIHV.png',
+        'https://i.imgur.com/hb1NLgT.jpeg',
+        'https://i.imgur.com/hb1NLgT.jpeg',
+      ];
+    }
     const renderImg = !!task?.attachments?.length && (
       <Box
         sx={{
@@ -141,6 +180,18 @@ const ItemBase = forwardRef<HTMLLIElement, ItemBaseProps>(
         />
       </Box>
     );
+    const firstValue = (Math.random() * (999 - 100) + 100).toFixed(1);
+    const secondValue = (Math.random() * (parseFloat(firstValue) - 100) + 100).toFixed(1);
+    const theme = useTheme();
+    let percent = parseFloat((Math.random() * (90 - -50) + -50).toFixed(1));
+
+    if (task.status === 'To do' && percent < 0) {
+      // Generate a positive value between 0 and 90
+      percent = parseFloat((Math.random() * 90).toFixed(1));
+    } else if (task.status === 'In progress' && percent > 0) {
+      // Generate a negative value between -50 and 0
+      percent = -1 * parseFloat((Math.random() * 50).toFixed(1)); // Corrected
+    }
 
     const renderInfo = (
       <Stack direction="row" alignItems="center">
@@ -150,21 +201,48 @@ const ItemBase = forwardRef<HTMLLIElement, ItemBaseProps>(
           alignItems="center"
           sx={{ typography: 'caption', color: 'text.disabled' }}
         >
-          <Iconify width={16} icon="solar:chat-round-dots-bold" sx={{ mr: 0.25 }} />
+          <Iconify width={16} icon="solar:mouse-circle-linear" sx={{ mr: 0.25 }} />
 
           <Box component="span" sx={{ mr: 1 }}>
-            {task?.comments?.length}
+            {secondValue}k
           </Box>
 
-          <Iconify width={16} icon="eva:attach-2-fill" sx={{ mr: 0.25 }} />
-          <Box component="span">{task?.attachments?.length}</Box>
+          <Iconify width={16} icon="solar:eye-broken" sx={{ mr: 0.25 }} />
+          <Box component="span">{firstValue}k</Box>
         </Stack>
 
-        <AvatarGroup sx={{ [`& .${avatarGroupClasses.avatar}`]: { width: 24, height: 24 } }}>
-          {task?.assignee?.map((user) => (
-            <Avatar key={user.id} alt={user.name} src={user.avatarUrl} />
-          ))}
-        </AvatarGroup>
+        <Box sx={{ gap: 0.5, display: 'flex', alignItems: 'center' }}>
+          <Box
+            component="span"
+            sx={{
+              width: 24,
+              height: 24,
+              display: 'flex',
+              borderRadius: '50%',
+              position: 'relative',
+              alignItems: 'center',
+              justifyContent: 'center',
+              bgcolor: varAlpha(theme.vars.palette.success.mainChannel, 0.16),
+              color: 'success.dark',
+              [stylesMode.dark]: { color: 'success.light' },
+              ...(percent < 0 && {
+                bgcolor: varAlpha(theme.vars.palette.error.mainChannel, 0.16),
+                color: 'error.dark',
+                [stylesMode.dark]: { color: 'error.light' },
+              }),
+            }}
+          >
+            <Iconify
+              width={16}
+              icon={percent < 0 ? 'eva:trending-down-fill' : 'eva:trending-up-fill'}
+            />
+          </Box>
+
+          <Box component="span" sx={{ typography: 'subtitle2' }}>
+            {percent > 0 && '+'}
+            {fPercent(percent)}
+          </Box>
+        </Box>
       </Stack>
     );
 
