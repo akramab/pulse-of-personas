@@ -67,7 +67,7 @@ export function EcommerceYearlySales({ title, subheader, chart, ...other }: Prop
       <ChartLegends
         colors={chartOptions?.colors}
         labels={chart.series[0].data.map((item) => item.name)}
-        values={[fShortenNumber(1234), fShortenNumber(6789)]}
+        values={[fShortenNumber(123423423), fShortenNumber(67324238)]}
         sx={{ px: 3, gap: 3 }}
       />
 
