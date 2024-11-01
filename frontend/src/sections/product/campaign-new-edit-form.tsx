@@ -42,6 +42,14 @@ export const NewProductSchema = zod.object({
   description: schemaHelper.editor({ message: { required_error: 'Description is required!' } }),
   images: schemaHelper.files({ message: { required_error: 'Images is required!' } }),
   code: zod.string().min(1, { message: 'Product code is required!' }),
+  impression: zod.number().optional(),
+  totalclick: zod.number().optional(),
+  available: zod
+    .object({
+      startDate: zod.date().optional(),
+      endDate: zod.date().optional(),
+    })
+    .optional(),
   sku: zod.string().min(1, { message: 'Product sku is required!' }),
   quantity: zod.number().min(1, { message: 'Quantity is required!' }),
   colors: zod.string().array().nonempty({ message: 'Choose at least one option!' }),
